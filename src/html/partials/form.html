@@ -1,1 +1,32 @@
 <!-- Sara -->
+
+<form
+  action="https://adalab-server-form.herokuapp.com"
+  method="post"
+  class="form"
+>
+  <div class="title-fill">
+    <i class="fa-solid fa-keyboard"></i>
+    <span class="fill">rellena</span>
+  </div>
+  <label for="name">nombre completo</label>
+  <input type="text" name="name" placeholder="Ej: Adalab Adalab" required />
+  <label for="jobpsition">puesto</label>
+  <input type="text" name="jobpsition" placeholder="Ej: Junior" required />
+
+  <label for="image">imagen de perfil</label>
+  <input type="file" name="image" id="image" class="addimage" required />
+  <label for="email">email</label>
+  <input type="text" name="email" placeholder="Ej: adalab@adalab" required />
+  <label for="phone">teléfono</label>
+  <input type="text" name="phone" placeholder="Ej: 789 653 214" required />
+  <label for="linkedin">linkedin</label>
+  <input
+    type="text"
+    name="linkedin"
+    placeholder="Ej: https://www.linkedin.com/school/adalab/"
+    required
+  />
+  <label for="github">github</label>
+  <input type="text" name="github" placeholder="Ej: @Adalab" required />
+</form>
