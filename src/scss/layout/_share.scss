@@ -1,0 +1,115 @@
+.share-section {
+  width: 100%;
+  border-color: transparent;
+  padding: 10px 13px 30px;
+  @media all and (min-width: 768px) {
+    width: 45%;
+    margin-left: 40px;
+  }
+}
+.legend-share {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  gap: 45px;
+  color: $main_text_color;
+  /* border-bottom: solid #d8d8d8 1px; */
+}
+.share {
+  text-transform: uppercase;
+  color: $main_text_color;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  margin-right: 80px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.button-container {
+  display: flex;
+  border-bottom: solid #d8d8d8 1px;
+}
+.button-create {
+  width: 199px;
+  height: 50px;
+  background-color: $primary_color;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  color: #ffffff;
+  margin: 20px auto 30px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border-color: transparent;
+  font-size: 1.8rem;
+}
+/* OJO CUIDAO!
+when the card is created the color of the button changes to gray
+
+.button-create {
+  background-color: #d5d5d5;
+} */
+
+.fa-share-nodes {
+  color: $primary_color;
+}
+.fa-angle-down {
+  display: block;
+  margin-right: 5%;
+  color: $main_text_color;
+}
+/* OJO CUIDAO!
+when share is deployed, the arrow turns */
+
+/* .fa-angle-down {
+  display: block;
+  margin-right: 5%;
+  color: $main_text_color;
+  transform: rotateX(180deg);
+} */
+
+.share-text {
+  color: $main_text_color;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.share-text:first-letter {
+  text-transform: capitalize;
+}
+.container-collapsible {
+  border-bottom: solid #d8d8d8 1px;
+}
+.check {
+  row-gap: 13px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.created {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 13px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.created a {
+  color: var(--primary_color);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.button-share {
+  width: 180px;
+  height: 30px;
+  background-color: #00a0f5;
+  color: #ffffff;
+  border-radius: 4px;
+  border-color: transparent;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
+  font-size: 1.4rem;
+}
