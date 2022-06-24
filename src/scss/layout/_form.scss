@@ -12,11 +12,11 @@
     padding: 5px;
     border: 1px solid $form_color;
 }
-.form label {
+.text-fill {
     color: $secondary_color;
     font-weight: 500;
 }
-.form label:first-letter {
+.text-fill:first-letter {
     text-transform: capitalize;
     
 }
@@ -24,7 +24,7 @@
     margin-top: 10px;
     margin-bottom: 25px;
 }
-.fa-solid {
+.fa-keyboard {
     color: $primary_color;
     width: 20px;
     height: 20px;
