@@ -5,10 +5,9 @@
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
-    gap: 10px;
+    gap: 15px;
     font-family: $main_font;
     font-size: 14px;
-    
 }
 .fill-section input {
     padding: 5px;
@@ -20,33 +19,50 @@
 }
 .text-fill:first-letter {
     text-transform: capitalize;
-    
+}
+.profile:first-letter {
+    text-transform: capitalize;
+}
+.profile {
+    margin-bottom: 15px;
 }
 .legend-fill {
     margin-top: 10px;
     margin-bottom: 25px;
 }
-
 .fill-section .fa-keyboard {
     color: $primary_color;
     width: 20px;
     height: 20px;
     margin-left: 20px;
     margin-right: 10px;
-    
 }
-
+.div-text-fill {
+    margin-bottom: 10px;
+}
 .fill {
     text-transform: uppercase;
     color: $main_text_color;
     font-size: 18px;
     font-weight: 600;
-    
 }
-
-.button {
-    background-color: $primary_color;
+.image_button {
+    border: 0;
+    box-shadow: 0 0 5px rgba(#000, .3);
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 10px;
     width: 140px;
+    cursor: pointer;
+    background-color: $primary_color;
     height: 30px;
     border-radius: 4px;
-}
+    text-transform: capitalize;
+    
+  }
+.image__hiddenField {
+    /* Ocultamos el input de tipo "file" porque no podemos 
+    darle los estilos que queremos */
+    display: none;
+  }
