@@ -54,28 +54,23 @@
         &__item {
             list-style: none;
             margin: 0rem 0.4875rem 0.4875rem ;
-            
-            
-            &__link {
-                text-decoration: none;
-                color: #54585a;
-                text-align: center;
-                font-size: 0.8rem;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            color: #54585a;
+            text-align: center;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
+            @media all and (min-width: 768px) {
+                font-size: 1rem;
+            }
+    
+            .icon {
+                color: $primary_color;
+                font-size: 1.625rem;
+    
                 @media all and (min-width: 768px) {
-                    font-size: 1rem;
-                 }
-
-                .icon {
-                    color: $primary_color;
-                    font-size: 1.625rem;
-
-                    @media all and (min-width: 768px) {
-                       font-size: 1.8125rem;
-                    }
+                    font-size: 1.8125rem;
                 }
             }
         }

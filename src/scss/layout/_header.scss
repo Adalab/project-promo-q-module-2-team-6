@@ -1,4 +1,4 @@
-.header {
+.header__home {
     width: 100vw;
     margin: 5.9375rem auto 2.2125rem;
     display: flex;
@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
 
-    .header__logo {
+    &__logo {
         width: 15.625rem;
 
         @media all and (min-width: 768px) {
@@ -16,5 +16,13 @@
 
     @media all and (min-width: 768px) {
         margin: 21.875rem auto 1.9375rem;
+    }
+}
+
+.header__profile {
+    width: 100vw;
+    
+    &__logo {
+
     }
 }
