@@ -1,3 +1,13 @@
+.form {
+    @media all and (min-width: 768px) {
+        width: 45%;
+        margin-left: 40px;
+    }
+    @media all and (min-width: 1064px) {
+        width: 30%;
+        margin-left: 40px;
+    }
+}
 .fill-section {
     border-color: transparent;
     display: flex;
@@ -10,6 +20,10 @@
     font-size: 14px;
     @media all and (min-width: 768px) {
         width: 45%;
+        margin-left: 40px;
+    }
+    @media all and (min-width: 1064px) {
+        width: 30%;
         margin-left: 40px;
     }
 }
@@ -38,6 +52,7 @@
     align-items: baseline;
     gap: 15px;
     color: $main_text_color;
+    
     
 }
 .fill {
