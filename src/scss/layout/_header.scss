@@ -1,21 +1,21 @@
 .header__home {
     width: 100vw;
-    margin: 5.9375rem auto 2.2125rem;
+    margin: 9.5rem auto 3.45rem;
     display: flex;
     justify-content: center;
     position: absolute;
     top: 0;
 
     &__logo {
-        width: 15.625rem;
+        width: 25rem;
 
         @media all and (min-width: 768px) {
-            width: 26.1875rem;
+            width: 41.9rem;
         }
     }
 
     @media all and (min-width: 768px) {
-        margin: 21.875rem auto 1.9375rem;
+        margin: 35rem auto 3.1rem;
     }
 }
 
@@ -25,15 +25,15 @@
     display: flex;
     justify-content: center;
     margin: 0rem;
-    height: 6.9375rem;
+    height: 11.1rem;
 
     &__logo {
-        width: 12.5625rem;
+        width: 20.1rem;
     }
 
     @media all and (min-width: 768px) {
         justify-content: flex-start;
-        margin-left: 2.5rem;
+        margin-left: 4rem;
     }
 
 }
