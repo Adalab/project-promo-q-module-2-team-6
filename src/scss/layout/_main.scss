@@ -1,24 +1,21 @@
 .main {
     background-color: #f5f5f5;
-    padding: 19.34rem 2.56rem 3rem;
-    height: calc(100vh - 11rem);
-    min-height: 430px;
+    padding: 19.34rem 2.8rem 0rem 2.72rem;
+    min-height: calc(100vh - 11rem);
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 
 
     @media all and (min-width: 768px) {
-        min-height: 965px;
-        height: calc(100vh - 3.75rem);
-        padding-top: 48.85rem;
-        padding-bottom: 5.9rem;
+        padding: 48.6rem 24.5rem 5.9rem;
+        min-height: calc(100vh - 6.1rem);
     }
 
     &__title {
         font-family: $title_font;
         color: $primary_color;
-        text-align: center;
         font-size: 1.92rem;
 
         @media all and (min-width: 768px) {
@@ -30,7 +27,8 @@
         color: $secondary_color;
         text-align: center;
         font-size: 1.28rem;
-        min-width: 26.48rem;
+        width: 26.48rem;
+        
 
         @media all and (min-width: 768px) {
             font-size: 1.6rem;
@@ -40,20 +38,23 @@
 
     &__menu {
         display: flex;
-        padding: 1.5rem 2rem 1rem 3.15rem;
-        margin: 1.78rem 2rem 3.86rem;
+        padding: 1.5rem 2rem 1rem;
+        margin: 1.78rem auto 3.86rem;
         gap: 3.4rem;
         border: 1.6px solid #e173342c;
         border-radius: 4px;
 
         @media all and (min-width: 768px) {
             margin: 2.7rem auto 18.6rem;
+            border: 2px solid #e173342c;
         }
        
 
         &__item {
+            width: 60px;
+            height: 4.88rem;
             list-style: none;
-            margin: 0rem 0.78rem 0.78rem ;
+            
             color: #54585a;
             text-align: center;
             font-size: 1.28rem;
@@ -63,6 +64,7 @@
 
             @media all and (min-width: 768px) {
                 font-size: 1.6rem;
+                width: 75px;
             }
     
             .icon {
@@ -78,12 +80,14 @@
 
     &__button {
         text-transform: uppercase;
+        font-size: 1.6rem;
         background-color: #438792;
         font-weight: 600;
         text-decoration: none;
         color: white;
         padding: 1rem 2rem;
         border-radius: 2.1rem;
+        margin-bottom: 3rem;
 
         @media all and (min-width: 768px) {
             margin: 0rem;
