@@ -1,6 +1,7 @@
 .main-profile {
   display: grid;
   grid-template-columns: 1fr;
+  min-height: calc(100vh - 6.1rem);
 
   @media all and (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
