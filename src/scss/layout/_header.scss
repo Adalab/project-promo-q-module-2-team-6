@@ -1,39 +1,39 @@
 .header__home {
-    width: 100vw;
-    margin: 9.5rem auto 3.45rem;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 0;
+  width: 100vw;
+  margin: 9.5rem auto 3.54rem;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  margin-bottom: 300px;
 
-    &__logo {
-        width: 25rem;
-
-        @media all and (min-width: 768px) {
-            width: 41.9rem;
-        }
-    }
+  &__logo {
+    width: 25rem;
 
     @media all and (min-width: 768px) {
-        margin: 35rem auto 3.1rem;
+      width: 41.9rem;
     }
+  }
+
+  @media all and (min-width: 768px) {
+    margin: 35rem auto 3.1rem;
+  }
 }
 
 .header__profile {
-    width: 100vw;
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin: 0rem;
-    height: 11.1rem;
+  width: 100vw;
+  position: static;
+  display: flex;
+  justify-content: center;
+  margin: 0rem;
+  height: 11.1rem;
 
-    &__logo {
-        width: 20.1rem;
-    }
+  &__logo {
+    width: 20.1rem;
+  }
 
-    @media all and (min-width: 768px) {
-        justify-content: flex-start;
-        margin-left: 4rem;
-    }
-
+  @media all and (min-width: 768px) {
+    justify-content: flex-start;
+    margin-left: 4rem;
+  }
 }
