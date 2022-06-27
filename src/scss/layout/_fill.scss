@@ -1,15 +1,5 @@
-.fill {
-  @media all and (min-width: 768px) {
-    width: 45%;
-    margin-left: 40px;
-  }
-  @media all and (min-width: 1064px) {
-    width: 30%;
-    margin-left: 40px;
-  }
-}
 .fill-section {
-  border-color: transparent;
+  border: 0;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
@@ -17,7 +7,10 @@
   margin-right: 20px;
   gap: 15px;
   font-family: $main_font;
-  font-size: 14px;
+  font-size: 1.4rem;
+  padding-bottom: 30px;
+  border-bottom: solid #d8d8d8 1px;
+ 
   @media all and (min-width: 768px) {
     width: 45%;
     margin-left: 40px;
@@ -52,11 +45,12 @@
   align-items: baseline;
   gap: 15px;
   color: $main_text_color;
+   
 }
 .fill {
   text-transform: uppercase;
   color: $main_text_color;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   flex-grow: 1;
 }
@@ -66,7 +60,9 @@
   width: 20px;
   height: 20px;
 }
-
+.fill-section .fa-angle-down {
+  margin-right: 0;
+}
 .div-text-fill {
   margin-bottom: 10px;
 }
@@ -79,8 +75,8 @@
   box-shadow: 0 0 5px rgba(#000, 0.3);
   box-sizing: border-box;
   color: #fff;
-  font-size: 14px;
-  padding: 10px 15px;
+  font-size: 1.4rem;
+  padding: 1rem 1.5rem;
   width: 140px;
   cursor: pointer;
   background-color: $primary_color;
