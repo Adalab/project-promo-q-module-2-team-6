@@ -1,0 +1,109 @@
+
+.design-section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    border-color: transparent;
+    padding: 10px 0 30px;
+    margin-top: 20px;
+    border-bottom: solid #d8d8d8 1px; 
+}
+
+.legend-design {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    color: $main_text_color;
+    @media all and (min-width: 768px) {
+      padding: 0 20px;
+    }
+}
+
+.design-section .fa-object-ungroup {
+    color: $primary_color;
+    font-size: 1.6rem;
+}
+
+.design-section .fa-angle-down {
+    display: block;
+    margin-right: 5%;
+    color: $main_text_color;
+    font-size: 2rem;
+}
+
+.design-colors {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 40px;
+    width: 80%;
+}
+
+.color-palette-label{
+    display: inline-flex;
+}
+
+.colors-options{
+    display: flex;
+    flex-direction: column;
+}
+
+.design-subtitle {
+    font-family: $main_font;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $main_text_color;
+    text-transform: uppercase;
+}
+
+.option {
+    cursor: pointer;
+    align-items: center;
+    padding: 5px;
+    display: inline-flex;
+}
+
+
+@mixin color-square ($color) {
+     background-color: $color;
+     width: 30px;
+     height: 25px;
+}
+
+.color1 {
+    @include color-square(#114e4e);
+}
+.color2 {
+    @include color-square(#438792);
+}
+.color3 {
+    @include color-square(#a2deaf);
+}
+ 
+
+.color4 {
+    @include color-square(#420101);
+}
+.color5 {
+    @include color-square(#bd1010);
+}
+.color6 {
+    @include color-square(#e95626);
+}
+
+
+.color7 {
+    @include color-square(#3e5b65);
+}
+.color8 {
+    @include color-square(#eab052);
+}
+.color9 {
+    @include color-square(#a0c0cf);
+}
