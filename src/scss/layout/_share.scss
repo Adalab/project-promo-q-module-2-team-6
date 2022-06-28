@@ -8,10 +8,7 @@
   margin-top: 20px;
   margin-bottom: 30px;
   border-bottom: solid #d8d8d8 1px;
-  @media all and (min-width: 768px) {
-    width: 45%;
-    margin-left: 40px;
-  }
+
 }
 .legend-share {
   width: 100%;
@@ -22,9 +19,7 @@
   align-items: baseline;
   gap: 15px;
   color: $main_text_color;
-  @media all and (min-width: 768px) {
-    padding: 0;
-  }
+
 }
 .share {
   text-transform: uppercase;
@@ -71,15 +66,6 @@ when the card is created the color of the button changes to gray
   margin-right: 5%;
   color: $main_text_color;
 }
-/* OJO CUIDAO!
-when share is deployed, the arrow turns */
-
-/* .fa-angle-down {
-  display: block;
-  margin-right: 5%;
-  color: $main_text_color;
-  transform: rotateX(180deg);
-} */
 
 .check {
   row-gap: 13px;
