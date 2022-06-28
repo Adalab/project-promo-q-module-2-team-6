@@ -65,6 +65,18 @@
 }
 .div-text-fill {
   margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1;
+  
+}
+.profile__preview {
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  border: solid 1px $form_color;
+  grid-column-start: 2;
+  align-items: baseline;
+  
 }
 .profile {
   color: $secondary_color;

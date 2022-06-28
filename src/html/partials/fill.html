@@ -10,15 +10,19 @@
   <input type="text" name="jobpsition" placeholder="Ej: Junior" required />
 
   <div class="div-text-fill">
-    <p class="profile">imagen de perfil</p>
-    <label class="text-fill image_button" for="image">añadir imagen</label>
-    <input
-      type="file"
-      name=""
-      id="image"
-      class="image__hiddenField js__profile-upload-btn"
-    />
+    <div>
+      <p class="profile">imagen de perfil</p>
+      <label class="text-fill image_button" for="image">añadir imagen</label>
+      <input
+        type="file"
+        name=""
+        id="image"
+        class="image__hiddenField js__profile-upload-btn"
+      />
+    </div>
+    <div class="profile__preview js__profile-preview"></div>
   </div>
+
   <label for="email" class="text-fill">email</label>
   <input type="text" name="email" placeholder="Ej: adalab@adalab" required />
   <label for="phone" class="text-fill">teléfono</label>
