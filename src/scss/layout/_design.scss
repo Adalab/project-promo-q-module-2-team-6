@@ -107,3 +107,7 @@
 .color9 {
     @include color-square(#a0c0cf);
 }
+
+.hidden {
+    display: none;
+}

@@ -1,10 +1,10 @@
 .preview {
   background: linear-gradient(#bfcdd0, #dde9ed);
-  width: 100vw;
   padding-bottom: 40px;
   display: grid;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  grid-template-rows: min-content min-content;
 }
 
 .reset-button {
