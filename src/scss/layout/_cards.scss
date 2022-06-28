@@ -1,15 +1,23 @@
 .preview {
+  width: 85%;
+  height: 95%;
+  margin: auto auto;
   background: linear-gradient(#bfcdd0, #dde9ed);
-  width: 100vw;
   padding-bottom: 40px;
   display: grid;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  grid-template-rows: min-content  min-content;
+
+  @media all and (min-width: 768px) {
+    border-radius: 6px;
+  }
 }
 
+
 .reset-button {
-  width: 85px;
-  height: 30px;
+  width: 8.5rem;
+  height: 3rem;
   font-size: 12px;
   font-weight: lighter;
   color: $main_text_color;
@@ -17,9 +25,12 @@
   background-color: transparent;
   border: 1px solid white;
   border-radius: 20px;
-  padding: 8px 15px 8px 15px;
   margin-top: 45px;
   margin-bottom: 20px;
+}
+
+.preview .fa-regular {
+  padding-right: 5px;
 }
 
 .card {
