@@ -61,7 +61,10 @@
   height: 20px;
 }
 .fill-section .fa-angle-down {
-  margin-right: 0;
+  display: block;
+    margin-right: 5%;
+    color: $main_text_color;
+    font-size: 2rem;
 }
 .div-text-fill {
   margin-bottom: 10px;
