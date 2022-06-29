@@ -2,8 +2,8 @@
 
 // 1. Identificar a quien se le da el deplegable: legend-design. x
 // 2. Añadir el evento. x
-// 3. Cuando se haga click se abra la sección y se cierren las otras 2. 
-// 4. Girar la flecha cuando se haga click.  
+// 3. Cuando se haga click se abra la sección y se cierren las otras 2. x
+// 4. Girar la flecha cuando se haga click. x
 
 const designMenu = document.querySelector('.design-colors');
 const legendDesign = document.querySelector ('.legend-design');
@@ -14,7 +14,11 @@ const shareMenu = document.querySelector('.container-collapsible');
 const arrowDesing = document.querySelector ('.js-arrow-design1');
 const arrowShare = document.querySelector ('.js-arrow-design2');
 const arrowFill = document.querySelector ('.js-arrow-design3');
+const buttonForm = document.querySelector ('.button-create');
 
+buttonForm.addEventListener('click', () => {
+  event.preventDefault();
+});
 
 
 legendDesign.addEventListener('click', () => {
@@ -43,6 +47,7 @@ function clickComprob (visibleMenu, collapsedMenuOne, collapsedMenuTwo) {
     collapsedMenuTwo.classList.add('collapsed');
   }
 }
+
 
 
 // function visibleMenu (selector) {
