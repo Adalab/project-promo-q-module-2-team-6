@@ -8,3 +8,12 @@
 @import "layout/fill";
 @import "layout/share";
 @import "layout/footer";
+
+.collapsed {
+    display: none;
+  }
+
+.rotate {
+    transform: rotate(180deg);
+    transition-duration: 350ms;
+  }
