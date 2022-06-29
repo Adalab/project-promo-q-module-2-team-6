@@ -5,12 +5,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-
+   
 
     @media all and (min-width: 768px) {
-        padding: 48.6rem 24.5rem 5.9rem;
-        min-height: calc(100vh - 6.1rem);
+        height: calc(100vh - 6.1rem);
+        justify-content: flex-start;
+        padding-top: calc(100vh - 59vh);
     }
 
     &__title {
@@ -32,7 +32,8 @@
 
         @media all and (min-width: 768px) {
             font-size: 1.6rem;
-            max-width: 331px;
+            width: 33.1rem;
+            margin-bottom: 2.7rem;
         }
     }
 
@@ -45,7 +46,7 @@
         border-radius: 4px;
 
         @media all and (min-width: 768px) {
-            margin: 2.7rem auto 18.6rem;
+            // margin: 2.7rem auto 18.6rem;
             border: 2px solid #e173342c;
         }
        
@@ -91,6 +92,7 @@
 
         @media all and (min-width: 768px) {
             margin: 0rem;
+            margin-top: calc(10vh);
         }
     }
 }
