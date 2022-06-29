@@ -6,8 +6,17 @@
 
   @media all and (min-width: 768px) {
     grid-template-columns: 2fr 3fr;
-  }
+    padding: 20px 40px 20px;
+
+    .preview { 
+      border-radius: 7px;     
+    }
+    .card {
+      margin-bottom: 300px;
+    }
+  } 
 }
+
 .preview {
   @media all and (min-width: 768px) {
     order: 2;
