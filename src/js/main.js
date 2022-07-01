@@ -14,7 +14,7 @@ const previewLink = document.querySelector('.js-preview-phone');
 const previewPhoto = document.querySelector('.js-preview-photo');
 
 
-/* const collapsableMenu = document.querySelectorAll('.collapsablemenu');
+const collapsableMenu = document.querySelectorAll('.collapsablemenu');
 collapsableMenu.forEach(item => item.addEventListener('click', hideShow));
 
 function hideShow (event) {
@@ -31,7 +31,7 @@ function hideShow (event) {
       }
     });
   }
-} */
+}
 
 
 

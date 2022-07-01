@@ -8,14 +8,11 @@
   border-bottom: solid #d8d8d8 1px;
 }
 
-.fill-inputs-section {
-  font-size: 1.4rem;
-}
-
 .fill-inputs-section{
   display: flex;
   flex-direction: column;  
   gap: 15px;
+  font-size: 1.4rem;
 }
 
 .fill-section input {
@@ -25,6 +22,7 @@
 .text-fill {
   color: $secondary_color;
   font-weight: 500;
+  font-size: 1.4rem;
 }
 .text-fill:first-letter {
   text-transform: capitalize;
