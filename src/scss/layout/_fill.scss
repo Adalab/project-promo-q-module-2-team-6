@@ -8,9 +8,9 @@
   border-bottom: solid #d8d8d8 1px;
 }
 
-.fill-inputs-section{
+.fill-inputs-section {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   gap: 15px;
   font-size: 1.4rem;
 }
@@ -41,7 +41,6 @@
   align-items: baseline;
   gap: 15px;
   color: $main_text_color;
-   
 }
 .fill {
   text-transform: uppercase;
@@ -58,15 +57,13 @@
 }
 .fill-section .fa-angle-down {
   display: block;
-    margin-right: 5%;
-    color: $main_text_color;
-    
+  margin-right: 5%;
+  color: $main_text_color;
 }
 .div-text-fill {
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: 1;
-  
 }
 .profile__preview {
   width: 30px;
@@ -75,7 +72,6 @@
   border: solid 1px $form_color;
   grid-column-start: 2;
   align-items: baseline;
-  
 }
 .profile {
   color: $secondary_color;

@@ -1,7 +1,5 @@
 "use strict";
 
-/* const collapsableMenu = document.querySelectorAll(".collapsablemenu");
-collapsableMenu.forEach((item) => item.addEventListener("click", hideShow)); */
 const nameJs = document.querySelector(".js-name-input");
 const jobJs = document.querySelector(".js-job-input");
 const imgJs = document.querySelector(".js-img-input");
@@ -14,10 +12,13 @@ const previewName = document.querySelector(".js-preview-name");
 const previewJob = document.querySelector(".js-preview-job");
 const previewLink = document.querySelector(".js-preview-phone");
 const previewPhoto = document.querySelector(".js-preview-photo");
+const resetBtn = document.querySelector(".js-resetBtn");
+
+const collapsableMenu = document.querySelectorAll(".collapsablemenu");
+collapsableMenu.forEach((item) => item.addEventListener("click", hideShow));
 
 function hideShow(event) {
   const fieldsetElement = event.currentTarget;
-
   const sectionToHide = fieldsetElement.querySelector(".section-to-hide"); //
   const arrowSection = fieldsetElement.querySelector(".arrow");
   sectionToHide.classList.toggle("collapsed");
@@ -31,18 +32,18 @@ function hideShow(event) {
     });
   }
 }
-
+const dataCard = {
+  palette: 1,
+  name: "",
+  job: "",
+  phone: "",
+  email: "",
+  linkedin: "",
+  github: "",
+  photo: "",
+};
+//previsualiza datos en tarjeta
 function listen(event) {
-  const dataCard = {
-    palette: 1,
-    name: nameJs.value,
-    job: jobJs.value,
-    phone: phoneJs.value,
-    email: emailJs.value,
-    linkedin: linkJs.value,
-    github: gitJs.value,
-    photo: imgJs.value,
-  };
   previewName.innerHTML = nameJs.value;
   previewJob.innerHTML = jobJs.value;
   previewPhoto.src = imgJs.value;
@@ -50,3 +51,39 @@ function listen(event) {
 }
 
 form.addEventListener("keyup", listen);
+//show default values card
+function cardDefault() {
+  dataCard.palette = 1;
+  dataCard.name = "Nombre Apellido";
+  dataCard.job = "Front developer";
+  dataCard.phone = "";
+  dataCard.email = "";
+  dataCard.linkedin = "";
+  dataCard.github = "";
+  dataCard.photo = "./assets/images/photo.png";
+  return dataCard;
+}
+//init form
+function resetForm() {
+  nameJs.value = "";
+  jobJs.value = "";
+  imgJs.src = "";
+  phoneJs.value = "";
+  emailJs.value = "";
+  linkJs.value = "";
+  gitJs.value = "";
+}
+//init card
+function resetCard() {
+  cardDefault();
+  previewName.innerHTML = dataCard.name;
+  previewJob.innerHTML = dataCard.job;
+  previewPhoto.src = dataCard.photo;
+  previewLink.href = dataCard.linkedin;
+}
+
+function handleClickReset() {
+  resetForm();
+  resetCard();
+}
+resetBtn.addEventListener("click", handleClickReset);
