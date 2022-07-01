@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
 /* const formElement = document.querySelector('.form');
@@ -43,9 +43,6 @@ formElement.addEventListener('click', handleFunction); */
 
 
 
-
-
-
 //--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
 const collapsableMenu = document.querySelectorAll('.collapsablemenu');//Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
@@ -82,6 +79,7 @@ function hideShow (event) {
   //Guardamos en una variable cuál de los fieldsets está siendo clickado.
   //Es decir, event.currentTarget te devuelve cuál de los elementos que tienen añadido el addEventListener está siendo clickado, mientras que event.target te devuelve qué en particular está clickando el usuario.
 
+
   if (fieldsetElement === clickedElement || clickedElement.parentElement.classList.contains('js-legend')) {
     menuCollapser(fieldsetElement);
     otherMenusCollapser(fieldsetElement);
@@ -89,86 +87,68 @@ function hideShow (event) {
   } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
   //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
   //A continuación llamamos a las otras dos funciones para que se ejecuten.
-
-
-
-
-
-
-  //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
-
-const nameJs = document.querySelector(".js-name-input");
-const jobJs = document.querySelector(".js-job-input");
-const imgJs = document.querySelector(".js-img-input");
-const phoneJs = document.querySelector(".js-phone-input");
-const emailJs = document.querySelector(".js-email-input");
-const linkJs = document.querySelector(".js-link-input");
-const gitJs = document.querySelector(".js-git-input");
-const form = document.querySelector(".form");
-const previewName = document.querySelector(".js-preview-name");
-const previewJob = document.querySelector(".js-preview-job");
-const previewLink = document.querySelector(".js-preview-phone");
-const previewPhoto = document.querySelector(".js-preview-photo");
-const resetBtn = document.querySelector(".js-resetBtn");
-
-const collapsableMenu = document.querySelectorAll(".collapsablemenu");
-collapsableMenu.forEach((item) => item.addEventListener("click", hideShow));
-
-function hideShow(event) {
-  const fieldsetElement = event.currentTarget;
-  const sectionToHide = fieldsetElement.querySelector(".section-to-hide"); //
-  const arrowSection = fieldsetElement.querySelector(".arrow");
-  sectionToHide.classList.toggle("collapsed");
-  arrowSection.classList.toggle("rotate");
-
-  if (!fieldsetElement.classList.contains("collapsed")) {
-    collapsableMenu.forEach((section) => {
-      if (section !== fieldsetElement) {
-        section.querySelector(".section-to-hide").classList.add("collapsed");
-      }
-    });
-  }
 }
+
+
+
+//---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
+
+const nameJs = document.querySelector('.js-name-input');
+const jobJs = document.querySelector('.js-job-input');
+const imgJs = document.querySelector('.js-img-input');
+const phoneJs = document.querySelector('.js-phone-input');
+const emailJs = document.querySelector('.js-email-input');
+const linkJs = document.querySelector('.js-link-input');
+const gitJs = document.querySelector('.js-git-input');
+const form = document.querySelector('.form');
+const previewName = document.querySelector('.js-preview-name');
+const previewJob = document.querySelector('.js-preview-job');
+const previewLink = document.querySelector('.js-preview-phone');
+const previewPhoto = document.querySelector('.js-preview-photo');
+const resetBtn = document.querySelector('.js-resetBtn');
+
+
 const dataCard = {
   palette: 1,
-  name: "",
-  job: "",
-  phone: "",
-  email: "",
-  linkedin: "",
-  github: "",
-  photo: "",
+  name: '',
+  job: '',
+  phone: '',
+  email: '',
+  linkedin: '',
+  github: '',
+  photo:'',
 };
+
 //previsualiza datos en tarjeta
-function listen(event) {
+function listen() {
   previewName.innerHTML = nameJs.value;
   previewJob.innerHTML = jobJs.value;
   previewPhoto.src = imgJs.value;
   previewLink.href = linkJs.value;
 }
 
-form.addEventListener("keyup", listen);
+form.addEventListener('keyup', listen);
 //show default values card
 function cardDefault() {
   dataCard.palette = 1;
-  dataCard.name = "Nombre Apellido";
-  dataCard.job = "Front developer";
-  dataCard.phone = "";
-  dataCard.email = "";
-  dataCard.linkedin = "";
-  dataCard.github = "";
-  dataCard.photo = "./assets/images/photo.png";
+  dataCard.name = 'Nombre Apellido';
+  dataCard.job = 'Front developer';
+  dataCard.phone = '';
+  dataCard.email = '';
+  dataCard.linkedin = '';
+  dataCard.github = '';
+  dataCard.photo = './assets/images/photo.png';
   return dataCard;
 }
 //init form
 function resetForm() {
-  nameJs.value = "";
-  jobJs.value = "";
-  imgJs.src = "";
-  phoneJs.value = "";
-  emailJs.value = "";
-  linkJs.value = "";
-  gitJs.value = "";
+  nameJs.value = '';
+  jobJs.value = '';
+  imgJs.src = '';
+  phoneJs.value = '';
+  emailJs.value = '';
+  linkJs.value = '';
+  gitJs.value = '';
 }
 //init card
 function resetCard() {
@@ -183,4 +163,4 @@ function handleClickReset() {
   resetForm();
   resetCard();
 }
-resetBtn.addEventListener("click", handleClickReset);
+resetBtn.addEventListener('click', handleClickReset);
