@@ -4,15 +4,15 @@
   margin-left: 20px;
   margin-right: 20px;
   font-family: $main_font;
-  font-size: 1.4rem;
   padding-bottom: 30px;
   border-bottom: solid #d8d8d8 1px;
 }
 
-.fill-inputs-section{
+.fill-inputs-section {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   gap: 15px;
+  font-size: 1.4rem;
 }
 
 .fill-section input {
@@ -22,6 +22,7 @@
 .text-fill {
   color: $secondary_color;
   font-weight: 500;
+  font-size: 1.4rem;
 }
 .text-fill:first-letter {
   text-transform: capitalize;
@@ -40,7 +41,6 @@
   align-items: baseline;
   gap: 15px;
   color: $main_text_color;
-   
 }
 .fill {
   text-transform: uppercase;
@@ -57,15 +57,13 @@
 }
 .fill-section .fa-angle-down {
   display: block;
-    margin-right: 5%;
-    color: $main_text_color;
-    font-size: 2rem;
+  margin-right: 5%;
+  color: $main_text_color;
 }
 .div-text-fill {
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: 1;
-  
 }
 .profile__preview {
   width: 30px;
@@ -74,7 +72,6 @@
   border: solid 1px $form_color;
   grid-column-start: 2;
   align-items: baseline;
-  
 }
 .profile {
   color: $secondary_color;
