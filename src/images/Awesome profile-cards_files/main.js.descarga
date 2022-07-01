@@ -116,7 +116,7 @@ const dataCard = {
   email: '',
   linkedin: '',
   github: '',
-  photo:'',
+  photo:'"https://place-puppy.com/300x300"',
 };
 
 //previsualiza datos en tarjeta
@@ -138,7 +138,6 @@ function cardDefault() {
   dataCard.email = '';
   dataCard.linkedin = '';
   dataCard.github = '';
-  dataCard.photo = '';
   dataCard.photo = '';
   return dataCard;
 }
@@ -167,3 +166,5 @@ function handleClickReset() {
 }
 resetBtn.addEventListener('click', handleClickReset);
 
+
+//# sourceMappingURL=main.js.map
