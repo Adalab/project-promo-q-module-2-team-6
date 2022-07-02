@@ -54,5 +54,24 @@ function listen (event) {
 };
 
 
-
 form.addEventListener('keyup', listen);
+
+const data = {
+  palette: 1,
+  name: '',
+  job: '',
+  phone: '',
+  email: '',
+  linkedin: '',
+  github: '',
+  photo: ''
+};
+
+ const handleInput = () => {
+data.name = inputName.value;
+previewName.innerHTML = data.name;
+
+ 
+};
+
+form.addEventListener ('keyup', listen);
