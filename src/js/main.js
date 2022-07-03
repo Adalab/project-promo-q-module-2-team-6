@@ -1,6 +1,6 @@
 "use strict";
 
-//--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
+/* //--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
 /* const formElement = document.querySelector('.form');
 
 const localizeFieldset = (clickedElement) => clickedElement.classList.contains('js-legend') ? clickedElement : clickedElement.parentElement;
