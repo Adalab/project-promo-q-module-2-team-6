@@ -60,7 +60,7 @@ const arrowPositioner = () => {
 function menuCollapser (fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
-};//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
+}//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
 const otherMenusCollapser = (fieldsetElement) =>{
   collapsableMenu.forEach((item) => {
