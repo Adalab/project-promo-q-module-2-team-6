@@ -1,6 +1,6 @@
 'use strict';
 
-//--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
+/* //--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
 /* const formElement = document.querySelector('.form');
 
 const localizeFieldset = (clickedElement) => clickedElement.classList.contains('js-legend') ? clickedElement : clickedElement.parentElement;
@@ -88,7 +88,6 @@ function hideShow (event) {
   //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
   //A continuación llamamos a las otras dos funciones para que se ejecuten.
 };
-
 
 
 //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
