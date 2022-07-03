@@ -111,6 +111,7 @@ const previewJob = document.querySelector(".js-preview-job");
 const previewLink = document.querySelector(".js-preview-phone");
 const previewPhoto = document.querySelector(".js-preview-photo");
 const resetBtn = document.querySelector(".js-resetBtn");
+const createBtn = document.querySelector(".js-createBtn");
 
 const dataCard = {
   palette: 1,
@@ -132,6 +133,21 @@ function listen() {
 }
 
 form.addEventListener("keyup", listen);
+
+/*   if (dataForm.some((i) => i === "")) {
+    console.log("rellena los datos misiela");
+  } else {
+    console.log("mirala ella que bien ha rellenado el formulario");
+  }
+} */
+
+/* if (Object.values(dataCard).some((i) => i === "")) {
+  console.log("rellena los datos misiela");
+} else {
+  console.log("mirala ella que bien ha rellenado el formulario");
+}
+
+console.log(Object.values(dataCard).some((x) => x === "")); */
 
 //show default values card
 function cardDefault() {
