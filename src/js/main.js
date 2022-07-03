@@ -87,7 +87,7 @@ function hideShow (event) {
   } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
   //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
   //A continuación llamamos a las otras dos funciones para que se ejecuten.
-};
+}
 
 
 //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO

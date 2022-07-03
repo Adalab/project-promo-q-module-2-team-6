@@ -113,22 +113,24 @@
   padding: 8px 8px 8px 8px;
 }
 
-// ------------------------- paletas de colores ------------------------
 
-// .pallete1 {
-//   &__p {color: #114e4e;}
-//   &__icons {color: #438792;
-//   }
+  // ------------------------- paletas de colores ------------------------
+
+  .pallete1 {
+    & p {color: #114e4e;}
+    & .icons {color: #438792;}
+    & .rectangle { background-color: #a2deaf;}
+  }
   
-// }
-// .pallete2 {
-//   &__p { color: #420101;}
-//   &__icons {color: #bd1010;
-//   }
+  .pallete2 {
+    & p { color: #420101;}
+    & .icons {color: #bd1010;}
+    & .rectangle { background-color: #e95626;}
+  }
   
-// }
-// .pallete3 {
-//   &__p {color: #3e5b65;}
-//   &__icons {color: #eab052;
-//   }
-// }
+  .pallete3 {
+    & p {color: #3e5b65;}
+    & .icons {color: #eab052;}
+    & .rectangle { background-color: #a0c0cf;}
+  }
+  
