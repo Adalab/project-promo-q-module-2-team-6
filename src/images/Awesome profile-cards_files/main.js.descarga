@@ -60,7 +60,7 @@ const arrowPositioner = () => {
 function menuCollapser (fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
-};//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
+}//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
 const otherMenusCollapser = (fieldsetElement) =>{
   collapsableMenu.forEach((item) => {
@@ -87,7 +87,7 @@ function hideShow (event) {
   } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
   //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
   //A continuación llamamos a las otras dos funciones para que se ejecuten.
-};
+}
 
 
 
@@ -116,7 +116,7 @@ const dataCard = {
   email: '',
   linkedin: '',
   github: '',
-  photo:'',
+  photo:'"https://place-puppy.com/300x300"',
 };
 
 //previsualiza datos en tarjeta
@@ -138,7 +138,6 @@ function cardDefault() {
   dataCard.email = '';
   dataCard.linkedin = '';
   dataCard.github = '';
-  dataCard.photo = '';
   dataCard.photo = '';
   return dataCard;
 }
@@ -167,3 +166,5 @@ function handleClickReset() {
 }
 resetBtn.addEventListener('click', handleClickReset);
 
+
+//# sourceMappingURL=main.js.map
