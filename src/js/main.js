@@ -141,6 +141,10 @@ function cardDefault() {
   dataCard.photo = '';
   return dataCard;
 }
+
+
+
+//----------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
 //init form
 function resetForm() {
   nameJs.value = '';
