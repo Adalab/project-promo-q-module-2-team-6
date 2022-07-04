@@ -97,7 +97,7 @@ function hideShow(event) {
 }
 
 //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
-
+const allInputs = document.querySelector(".js-allInputs");
 const nameJs = document.querySelector(".js-name-input");
 const jobJs = document.querySelector(".js-job-input");
 const imgJs = document.querySelector(".js-img-input");
@@ -114,6 +114,7 @@ const previewEmail = document.querySelector(".js-preview-email");
 const previewGithub = document.querySelector(".js-preview-github");
 const previewPhoto = document.querySelector(".js-preview-photo");
 const resetBtn = document.querySelector(".js-resetBtn");
+const allInputs = document.querySelector(".js-allInputs");
 
 const dataCard = {
   palette: 1,
@@ -125,6 +126,16 @@ const dataCard = {
   github: "",
   photo: "",
 };
+const handleInput = (ev) => {
+  //esta variable guarda el imput sobre el q se escribe
+  const nameInput = ev.target.name;
+  //esta variable guarda el valor del input sobre el que se escribe
+  const valueInput = ev.target.value;
+  dataCard[nameInput] = valueInput;
+};
+
+//allInputs es currentTarget. Cada input será el target(me dice el input sobre el que estoy escribiendo)
+allInputs.addEventListener("keyup", handleInput);
 
 //previsualiza datos en tarjeta
 function listen() {
@@ -137,7 +148,7 @@ function listen() {
   previewGithub.href = gitJs.value;
 }
 
-form.addEventListener("keyup", listen);
+/* form.addEventListener("keyup", listen);  */
 
 function cardDefault() {
   dataCard.palette = 1;
