@@ -35,8 +35,29 @@ palette3.addEventListener('click', handleClickPalette3);
 
 // -------------------- Preparación inicial div img ----------------
 
-/* function addImagePreview (event) {
-    divPreview.style.backgroundImage = preview.value;
-};
+//parte imagen
 
-preview.addEventListener ('click', addImagePreview); */
+
+const newFile = new FileReader();
+const fileField = document.querySelector('.js__profile-upload-btn');
+const profileImage = document.querySelector('.js__profile-image');
+const profilePreview = document.querySelector('.js-preview-photo');
+
+
+//@param { evento } e
+
+function getImage (e) {
+  const myFile = e.currentTarget.files[0];
+  newFile.addEventListener('load', writeImage);
+  newFile.readAsDataURL(myFile);
+}
+
+
+function writeImage () {
+
+  profileImage.style.backgroundImage = `url(${newFile.result})`;
+  profilePreview.style.backgroundImage = `url(${newFile.result})`;
+}
+
+
+fileField.addEventListener('change', getImage);
