@@ -23,6 +23,7 @@ const gitJs = document.querySelector('.js-git-input');//GitHub.
 const phoneJs = document.querySelector('.js-preview-phone');//Phone.
 
 
+
 //Definimos el objeto dataCard.
 const dataCard = {
   palette: 1,
