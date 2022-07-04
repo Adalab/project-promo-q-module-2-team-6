@@ -54,9 +54,8 @@ function getImage (e) {
 
 
 function writeImage () {
-
-  profileImage.style.backgroundImage = `url(${newFile.result})`;
-  profilePreview.style.backgroundImage = `url(${newFile.result})`;
+  profileImage.style.background = `url(${newFile.result})`;
+  profilePreview.src = newFile.result;
 }
 
 
