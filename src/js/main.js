@@ -102,9 +102,12 @@ const gitJs = document.querySelector('.js-git-input');
 const form = document.querySelector('.form');
 const previewName = document.querySelector('.js-preview-name');
 const previewJob = document.querySelector('.js-preview-job');
-const previewLink = document.querySelector('.js-preview-phone');
+const previewLink = document.querySelector('.js-preview-link');
 const previewPhoto = document.querySelector('.js-preview-photo');
 const resetBtn = document.querySelector('.js-resetBtn');
+const previewPhone = document.querySelector('.js-preview-phone');
+
+
 
 
 const dataCard = {
@@ -124,6 +127,7 @@ function listen() {
   previewJob.innerHTML = jobJs.value;
   previewPhoto.src = imgJs.value;
   previewLink.href = linkJs.value;
+  previewPhone.href = `tel: ${phoneJs.value}`;
 }
 
 form.addEventListener('keyup', listen);
