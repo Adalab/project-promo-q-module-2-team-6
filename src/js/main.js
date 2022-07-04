@@ -102,11 +102,12 @@ const gitJs = document.querySelector('.js-git-input');
 const form = document.querySelector('.form');
 const previewName = document.querySelector('.js-preview-name');
 const previewJob = document.querySelector('.js-preview-job');
+const previewPhone = document.querySelector('.js-preview-phone');
 const previewLink = document.querySelector('.js-preview-link');
+const previewEmail = document.querySelector('.js-preview-email');
+const previewGithub = document.querySelector('.js-preview-github');
 const previewPhoto = document.querySelector('.js-preview-photo');
 const resetBtn = document.querySelector('.js-resetBtn');
-const previewPhone = document.querySelector('.js-preview-phone');
-
 
 
 
@@ -126,8 +127,10 @@ function listen() {
   previewName.innerHTML = nameJs.value;
   previewJob.innerHTML = jobJs.value;
   previewPhoto.src = imgJs.value;
-  previewLink.href = linkJs.value;
+  previewEmail.href = emailJs.value;
   previewPhone.href = `tel: ${phoneJs.value}`;
+  previewLink.href = linkJs.value;
+  previewGithub.href = gitJs.value;
 }
 
 form.addEventListener('keyup', listen);
