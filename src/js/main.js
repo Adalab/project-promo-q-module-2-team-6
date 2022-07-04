@@ -1,5 +1,111 @@
 'use strict';
 
+
+//---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
+//Elementos de la TARJETA.
+const previewName = document.querySelector('.js-preview-name');//Name.
+const previewJob = document.querySelector('.js-preview-job');//Job.
+const previewPhone = document.querySelector('.js-preview-phone');//Phone.
+const previewLink = document.querySelector('.js-preview-link');//Linkedin.
+const previewEmail = document.querySelector('.js-preview-email');//Email.
+const previewGithub = document.querySelector('.js-preview-github');//GitHub.
+const previewPhoto = document.querySelector('.js-preview-photo');//Photo.
+const resetBtn = document.querySelector('.js-resetBtn');//Elemento botón RESET.
+const form = document.querySelector('.form');//Elemnto formulario.
+
+//Elementos del FORMULARIO.
+const nameJs = document.querySelector('.js-name-input');//Name.
+const jobJs = document.querySelector('.js-job-input');//Job.
+const imgJs = document.querySelector('.js-img-input');//Img.
+const emailJs = document.querySelector('.js-email-input');//Email.
+const linkJs = document.querySelector('.js-link-input');//Linkedin.
+const gitJs = document.querySelector('.js-git-input');//GitHub.
+const phoneJs = document.querySelector('.js-preview-phone');//Phone.
+
+
+//Definimos el objeto dataCard.
+const dataCard = {
+  palette: 1,
+  name: 'Nombre Apellido',
+  job: 'Front-End developer',
+  phone: '',
+  email: '',
+  linkedin: '',
+  github: '',
+  photo:'./assets/images/photo.png',
+};
+
+//Función para previsualizar la información de los inputs en la tarjeta.
+const htmlPreview = () => {
+  previewName.innerHTML = dataCard.name;
+  previewJob.innerHTML = dataCard.job;
+  previewPhoto.src = dataCard.photo;
+  previewEmail.href = dataCard.email;
+  previewPhone.href = `tel: ${dataCard.phone}`;
+  previewLink.href = dataCard.linkedin;
+  previewGithub.href = dataCard.github;
+};
+
+
+//Función manejadora del FORMULARIO.
+function handlePreviewData(event) {
+  const clickedElement = event.target;
+  if (clickedElement) {
+    dataCard[clickedElement.name] = clickedElement.value;
+  }
+  htmlPreview(clickedElement);
+}
+
+form.addEventListener('keyup', handlePreviewData);
+
+
+
+//---------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
+
+//Resetea el objeto a sus valores por defecto.
+function cardDefault() {
+  dataCard.palette = 1;
+  dataCard.name = 'Nombre Apellido';
+  dataCard.job = 'Front developer';
+  dataCard.phone = '';
+  dataCard.email = '';
+  dataCard.linkedin = '';
+  dataCard.github = '';
+  dataCard.photo = '';
+  dataCard.photo = './assets/images/photo.png';
+}
+
+//Resetea el formulario.
+function resetForm() {
+  nameJs.value = '';
+  jobJs.value = '';
+  imgJs.src = '';
+  phoneJs.value = '';
+  emailJs.value = '';
+  linkJs.value = '';
+  gitJs.value = '';
+}
+
+//Devuelve la tarjeta a su estado original.
+function resetCard() {
+  cardDefault();
+  previewName.innerHTML = dataCard.name;
+  previewJob.innerHTML = dataCard.job;
+  previewPhoto.src = dataCard.photo;
+  previewLink.href = dataCard.linkedin;
+}
+
+
+//Función manejadora del botón RESET.
+function handleClickReset() {
+  resetForm();
+  resetCard();
+}
+
+resetBtn.addEventListener('click', handleClickReset);
+
+
+
 /* //--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
 /* const formElement = document.querySelector('.form');
 
@@ -52,6 +158,24 @@ collapsableMenu.forEach(item => item.addEventListener('click', hideShow, true));
 
 
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
+const paletteSelection = (element) => {
+  const card = document.querySelector ('.card');
+  const cardStyles = ['palette1', 'palette2','palette3'];
+  if (element.name === 'palette') {
+    dataCard[element.name] = element.id;
+    cardStyles.forEach(item => item === `palette${element.id}` ? card.classList.add(item) :card.classList.remove(item));
+  }
+};
+
+const createCard = (event, element) => {
+  if (element.name === 'newCardButton' || element.parentElement.name === 'newCardButton') {
+    event.preventDefault();
+    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value ? document.querySelector('.created').classList.remove('collapsed') : document.querySelector('.check').classList.remove('collapsed');
+    if (!document.querySelector('.created').classList.contains('collapsed')) {
+      document.querySelector('.button-create').classList.add('inactived');
+    }
+  }
+};
 
 const arrowPositioner = () => {
   collapsableMenu.forEach(section => !section.querySelector('.section-to-hide').classList.contains('collapsed') ? section.querySelector('.arrow').classList.add('rotate') : section.querySelector('.arrow').classList.remove('rotate'));
@@ -87,93 +211,6 @@ function hideShow (event) {
   } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
   //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
   //A continuación llamamos a las otras dos funciones para que se ejecuten.
+  paletteSelection(clickedElement);
+  createCard(event, clickedElement);
 }
-
-
-//---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
-
-const nameJs = document.querySelector('.js-name-input');
-const jobJs = document.querySelector('.js-job-input');
-const imgJs = document.querySelector('.js-img-input');
-const phoneJs = document.querySelector('.js-phone-input');
-const emailJs = document.querySelector('.js-email-input');
-const linkJs = document.querySelector('.js-link-input');
-const gitJs = document.querySelector('.js-git-input');
-const form = document.querySelector('.form');
-const previewName = document.querySelector('.js-preview-name');
-const previewJob = document.querySelector('.js-preview-job');
-const previewPhone = document.querySelector('.js-preview-phone');
-const previewLink = document.querySelector('.js-preview-link');
-const previewEmail = document.querySelector('.js-preview-email');
-const previewGithub = document.querySelector('.js-preview-github');
-const previewPhoto = document.querySelector('.js-preview-photo');
-const resetBtn = document.querySelector('.js-resetBtn');
-
-
-
-const dataCard = {
-  palette: 1,
-  name: '',
-  job: '',
-  phone: '',
-  email: '',
-  linkedin: '',
-  github: '',
-  photo:'',
-};
-
-//previsualiza datos en tarjeta
-function listen() {
-  previewName.innerHTML = nameJs.value;
-  previewJob.innerHTML = jobJs.value;
-  previewPhoto.src = imgJs.value;
-  previewEmail.href = emailJs.value;
-  previewPhone.href = `tel: ${phoneJs.value}`;
-  previewLink.href = linkJs.value;
-  previewGithub.href = gitJs.value;
-}
-
-form.addEventListener('keyup', listen);
-
-//show default values card
-function cardDefault() {
-  dataCard.palette = 1;
-  dataCard.name = 'Nombre Apellido';
-  dataCard.job = 'Front developer';
-  dataCard.phone = '';
-  dataCard.email = '';
-  dataCard.linkedin = '';
-  dataCard.github = '';
-  dataCard.photo = '';
-  dataCard.photo = '';
-  return dataCard;
-}
-
-
-
-//----------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
-//init form
-function resetForm() {
-  nameJs.value = '';
-  jobJs.value = '';
-  imgJs.src = '';
-  phoneJs.value = '';
-  emailJs.value = '';
-  linkJs.value = '';
-  gitJs.value = '';
-}
-//init card
-function resetCard() {
-  cardDefault();
-  previewName.innerHTML = dataCard.name;
-  previewJob.innerHTML = dataCard.job;
-  previewPhoto.src = dataCard.photo;
-  previewLink.href = dataCard.linkedin;
-}
-
-function handleClickReset() {
-  resetForm();
-  resetCard();
-}
-resetBtn.addEventListener('click', handleClickReset);
-

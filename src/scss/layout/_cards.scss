@@ -113,23 +113,22 @@
 }
 
 
-  // ------------------------- paletas de colores ------------------------
+// ------------------------- paletas de colores ------------------------
 
-  .pallete1 {
-    & p {color: #114e4e;}
-    & .icon-border {border: #438792 2px solid;}
-    & .rectangle { background-color: #a2deaf;}
-  }
-  
-  .pallete2 {
-    & p { color: #420101;}
-    & .icon-border {border: #bd1010 2px solid;}
-    & .rectangle { background-color: #e95626;}
-  }
-  
-  .pallete3 {
-    & p {color: #3e5b65;}
-    & .icon-border {border: #eab052 2px solid;}
-    & .rectangle { background-color: #a0c0cf;}
-  }
-  
+.palette1 {
+  & p {color: #114e4e;}
+  & .icon-border {border: #438792 2px solid;}
+  & .rectangle { background-color: #a2deaf;}
+}
+
+.palette2 {
+  & p { color: #420101;}
+  & .icon-border {border: #bd1010 2px solid;}
+  & .rectangle { background-color: #e95626;}
+}
+
+.palette3 {
+  & p {color: #3e5b65;}
+  & .icon-border {border: #eab052 2px solid;}
+  & .rectangle { background-color: #a0c0cf;}
+}
