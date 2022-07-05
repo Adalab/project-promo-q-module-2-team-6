@@ -105,7 +105,6 @@ const phoneJs = document.querySelector(".js-phone-input");
 const emailJs = document.querySelector(".js-email-input");
 const linkJs = document.querySelector(".js-link-input");
 const gitJs = document.querySelector(".js-git-input");
-const form = document.querySelector(".form");
 const previewName = document.querySelector(".js-preview-name");
 const previewJob = document.querySelector(".js-preview-job");
 const previewPhone = document.querySelector(".js-preview-phone");
@@ -114,7 +113,9 @@ const previewEmail = document.querySelector(".js-preview-email");
 const previewGithub = document.querySelector(".js-preview-github");
 const previewPhoto = document.querySelector(".js-preview-photo");
 const resetBtn = document.querySelector(".js-resetBtn");
-const allInputs = document.querySelector(".js-allInputs");
+const createBtn = document.querySelector(".js-createBtn");
+const alert = document.querySelector(".js-alert");
+const share = document.querySelector(".js-shareRRSS");
 
 const dataCard = {
   palette: 1,
@@ -126,19 +127,28 @@ const dataCard = {
   github: "",
   photo: "",
 };
+
 const handleInput = (ev) => {
   //esta variable guarda el imput sobre el q se escribe
   const nameInput = ev.target.name;
   //esta variable guarda el valor del input sobre el que se escribe
   const valueInput = ev.target.value;
   dataCard[nameInput] = valueInput;
+
+  previewName.innerHTML = dataCard.name;
+  previewJob.innerHTML = dataCard.job;
+  previewPhoto.src = dataCard.photo;
+  previewEmail.href = dataCard.email;
+  previewPhone.href = `tel: ${dataCard.phone}`;
+  previewLink.href = dataCard.linkedin;
+  previewGithub.href = dataCard.github;
 };
 
 //allInputs es currentTarget. Cada input será el target(me dice el input sobre el que estoy escribiendo)
 allInputs.addEventListener("keyup", handleInput);
 
 //previsualiza datos en tarjeta
-function listen() {
+/* function listen() {
   previewName.innerHTML = nameJs.value;
   previewJob.innerHTML = jobJs.value;
   previewPhoto.src = imgJs.value;
@@ -146,7 +156,7 @@ function listen() {
   previewPhone.href = `tel: ${phoneJs.value}`;
   previewLink.href = linkJs.value;
   previewGithub.href = gitJs.value;
-}
+} */
 
 /* form.addEventListener("keyup", listen);  */
 
@@ -165,6 +175,8 @@ function cardDefault() {
 //----------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
 //init form
 function resetForm() {
+  /* [Object.values(dataCard)].fill(""); */
+
   nameJs.value = "";
   jobJs.value = "";
   imgJs.src = "";
@@ -183,7 +195,25 @@ function resetCard() {
 }
 
 function handleClickReset() {
+  alert.classList.add("collapsed");
+  share.classList.add("collapsed");
   resetForm();
   resetCard();
 }
 resetBtn.addEventListener("click", handleClickReset);
+
+//**********validar formulario****** */
+const handleClickCreate = (ev) => {
+  ev.preventDefault();
+  console.log(Object.values(dataCard));
+
+  if (Object.values(dataCard).some((i) => i === "")) {
+    console.log("rellena los datos misiela");
+    alert.classList.remove("collapsed");
+  } else {
+    console.log("mirala ella que bien ha rellenado el formulario");
+    alert.classList.add("collapsed");
+    share.classList.remove("collapsed");
+  }
+};
+createBtn.addEventListener("click", handleClickCreate);
