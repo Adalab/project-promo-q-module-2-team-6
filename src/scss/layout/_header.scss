@@ -25,18 +25,21 @@
 
 .header__profile {
   width: 100%;
-  position: static;
-  display: flex;
-  justify-content: center;
-  margin: 0rem;
-  height: 11.1rem;
+  
+  &__link {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 0rem;
+    height: 11.1rem;
+    
+   @media all and (min-width: 768px) {
+      justify-content: flex-start;
+      padding-left: 4rem;
+    }
+  }
 
   &__logo {
     width: 20.1rem;
-  }
-
-  @media all and (min-width: 768px) {
-    justify-content: flex-start;
-    padding-left: 4rem;
   }
 }

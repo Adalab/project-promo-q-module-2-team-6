@@ -4,23 +4,27 @@
     <span class="fill">rellena</span>
     <i class="fa-solid fa-angle-up fa-2x js-arrow-design3 arrow"></i>
   </legend>
+
   <div class="fill-inputs-section section-to-hide collapsed">
     <label for="name" class="text-fill">nombre completo</label>
     <input
       type="text"
       name="name"
-      placeholder="Ej: Adalab Adalab"
-      value=""
+      placeholder="Ej: Ada Lovelace"
       class="js-name-input"
+      required
     />
+
     <label for="jobpsition" class="text-fill">puesto</label>
     <input
       type="text"
       name="job"
-      placeholder="Ej: Junior"
+      placeholder="Ej: Front-End developer"
       class="js-job-input"
       value=""
+      required
     />
+
     <div class="div-text-fill">
       <div>
         <p class="profile">imagen de perfil</p>
@@ -30,18 +34,22 @@
           name="photo"
           id="image"
           class="image__hiddenField js__profile-upload-btn js-img-input"
+          required
         />
       </div>
       <div class="profile__preview js__profile-image"></div>
     </div>
+
     <label for="email" class="text-fill">email</label>
     <input
       type="text"
       name="email"
       placeholder="Ej: adalab@adalab"
+      required
       class="js-email-input"
       value=""
     />
+
     <label for="phone" class="text-fill js-preview-phone">teléfono</label>
     <input
       type="phone"
@@ -50,12 +58,14 @@
       class="js-phone-input"
       value=""
     />
+
     <label for="linkedin" class="text-fill">linkedin</label>
     <input
       type="text"
       name="linkedin"
       placeholder="Ej: https://www.linkedin.com/school/adalab/"
       class="js-link-input"
+      required
       value=""
     />
     <label for="github" class="text-fill">github</label>
@@ -65,6 +75,7 @@
       class="js-git-input"
       placeholder="Ej: @Adalab"
       value=""
+      required
     />
   </div>
 </fieldset>

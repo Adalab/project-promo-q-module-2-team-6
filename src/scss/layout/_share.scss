@@ -36,6 +36,7 @@
 .button-container {
   display: flex;
 }
+
 .button-create {
   width: 199px;
   height: 50px;
@@ -49,12 +50,11 @@
   border-color: transparent;
   font-size: 1.8rem;
 }
-/* OJO CUIDAO!
-when the card is created the color of the button changes to gray
+//OJO CUIDAO! when the card is created the color of the button changes to gray
 
-.button-create {
+.inactived {
   background-color: #d5d5d5;
-} */
+} 
 
 .fa-share-nodes {
   color: $primary_color;
@@ -80,6 +80,7 @@ when the card is created the color of the button changes to gray
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .share-text {
   color: $main_text_color;
   font-size: 1.8rem;
