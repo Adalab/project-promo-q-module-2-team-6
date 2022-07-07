@@ -99,8 +99,8 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
-  profileImage.style.background = `url(${dataCard.photo})`;
-  profilePreview.src = dataCard.photo;
+  // profileImage.style.background = `url(${dataCard.photo})`;
+  // profilePreview.src = dataCard.photo;
 }
 
 
@@ -192,6 +192,7 @@ const arrowPositioner = () => {
 function menuCollapser (fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
+
 }//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
 const otherMenusCollapser = (fieldsetElement) =>{

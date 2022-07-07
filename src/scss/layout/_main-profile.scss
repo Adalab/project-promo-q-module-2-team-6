@@ -24,6 +24,8 @@
   }
 }
 
-.collapsed {
-  display: none;
+
+.rotate {
+  transform: rotate(180deg);
+  transition-duration: 350ms;
 }
