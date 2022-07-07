@@ -44,7 +44,7 @@ const htmlPreview = () => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
-  previewEmail.href = dataCard.email;
+  previewEmail.href = `mailto: ${dataCard.email}`;
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
