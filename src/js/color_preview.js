@@ -59,6 +59,7 @@ function writeImage() {
 function writeImage () {
 >>>>>>> 41f5a1c84aa664777a2930380528b4c18f6e128e
   profileImage.style.background = `url(${newFile.result})`;
+  profileImage.style.backgroundSize= 'cover';
   profilePreview.src = newFile.result;
 }
 

@@ -12,6 +12,7 @@ const previewGithub = document.querySelector('.js-preview-github');//GitHub.
 const previewPhoto = document.querySelector('.js-preview-photo');//Photo.
 const resetBtn = document.querySelector('.js-resetBtn');//Elemento botón RESET.
 const form = document.querySelector('.form');//Elemnto formulario.
+const paletteDefault = document.getElementById('1');
 
 //Elementos del FORMULARIO.
 const nameJs = document.querySelector('.js-name-input');//Name.
@@ -23,6 +24,8 @@ const gitJs = document.querySelector('.js-git-input');//GitHub.
 const phoneJs = document.querySelector('.js-preview-phone');//Phone.
 
 
+
+paletteDefault.setAttribute('checked', '');
 
 //Definimos el objeto dataCard.
 const dataCard = {
@@ -46,7 +49,6 @@ const htmlPreview = () => {
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
 };
-
 
 //Función manejadora del FORMULARIO.
 function handlePreviewData(event) {
@@ -72,12 +74,12 @@ function cardDefault() {
   dataCard.email = '';
   dataCard.linkedin = '';
   dataCard.github = '';
-  dataCard.photo = '';
   dataCard.photo = './assets/images/photo.png';
 }
 
 //Resetea el formulario.
 function resetForm() {
+  dataCard.palette = 1;
   nameJs.value = '';
   jobJs.value = '';
   imgJs.src = '';
@@ -94,6 +96,11 @@ function resetCard() {
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
   previewLink.href = dataCard.linkedin;
+  previewPhone.href = `tel: ${dataCard.phone}`;
+  previewLink.href = dataCard.linkedin;
+  previewGithub.href = dataCard.github;
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profilePreview.src = dataCard.photo;
 }
 
 
