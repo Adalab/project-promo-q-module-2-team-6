@@ -65,6 +65,7 @@
   display: grid;
   grid-template-columns: 150px 100px;
 }
+
 .profile__preview {
   width: 30px;
   height: 30px;
@@ -72,7 +73,12 @@
   border: solid 1px $form_color;
   grid-column-start: 2;
   align-items: baseline;
+  background-size: cover;
+  background-image: url(../images/photo.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 
 .profile {
   color: $secondary_color;

@@ -18,6 +18,7 @@ function getImage (e) {
 
 function writeImage () {
   profileImage.style.background = `url(${newFile.result})`;
+  profileImage.style.backgroundSize= 'cover';
   profilePreview.src = newFile.result;
 }
 
