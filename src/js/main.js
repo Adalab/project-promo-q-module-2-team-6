@@ -82,11 +82,13 @@ function resetForm() {
   emailJs.value = "";
   linkJs.value = "";
   gitJs.value = "";
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = "cover";
+  profileImage.style.backgroundPosition = "center";
 }
 
 //Devuelve la tarjeta a su estado original.
 function resetCard() {
-  cardDefault();
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
@@ -94,12 +96,11 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
-  profileImage.style.background = `url(${dataCard.photo})`;
-  profilePreview.src = dataCard.photo;
 }
 
 //Función manejadora del botón RESET.
 function handleClickReset() {
+  cardDefault();
   resetForm();
   resetCard();
 }
