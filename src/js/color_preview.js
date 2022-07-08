@@ -19,6 +19,7 @@ function writeImage() {
   profileImage.style.background = `url(${newFile.result})`;
   profileImage.style.backgroundSize = "cover";
   profilePreview.src = newFile.result;
+  dataCard.photo = newFile.result;
 }
 
 fileField.addEventListener("change", getImage);

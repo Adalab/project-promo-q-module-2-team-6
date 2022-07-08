@@ -20,7 +20,7 @@ const imgJs = document.querySelector(".js-img-input"); //Img.
 const emailJs = document.querySelector(".js-email-input"); //Email.
 const linkJs = document.querySelector(".js-link-input"); //Linkedin.
 const gitJs = document.querySelector(".js-git-input"); //GitHub.
-const phoneJs = document.querySelector(".js-preview-phone"); //Phone.
+const phoneJs = document.querySelector(".js-preview-phone"); //Phone.g
 
 paletteDefault.setAttribute("checked", "");
 
