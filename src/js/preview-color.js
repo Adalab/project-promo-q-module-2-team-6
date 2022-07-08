@@ -14,7 +14,6 @@ function getImage(e) {
   newFile.readAsDataURL(myFile);
 }
 
-
 function writeImage() {
   profileImage.style.background = `url(${newFile.result})`;
   profileImage.style.backgroundSize = 'cover';
