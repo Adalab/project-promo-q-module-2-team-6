@@ -164,3 +164,14 @@
     background-color: #a0c0cf;
   }
 }
+.palette4 {
+  & p {
+    color: #bd1010;
+  }
+  & .icon-border {
+    border: #000 2px solid;
+  }
+  & .rectangle {
+    background-color: #ffff24;
+  }
+}
