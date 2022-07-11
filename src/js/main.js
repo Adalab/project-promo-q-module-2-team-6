@@ -20,7 +20,7 @@ const imgJs = document.querySelector(".js-img-input"); //Img.
 const emailJs = document.querySelector(".js-email-input"); //Email.
 const linkJs = document.querySelector(".js-link-input"); //Linkedin.
 const gitJs = document.querySelector(".js-git-input"); //GitHub.
-const phoneJs = document.querySelector(".js-preview-phone"); //Phone.g
+const phoneJs = document.querySelector(".js-preview-phone"); //Phone.
 
 paletteDefault.setAttribute("checked", "");
 
@@ -41,7 +41,7 @@ const htmlPreview = () => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
-  previewEmail.href = dataCard.email;
+  previewEmail.href = `mailto: ${dataCard.email}`;
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
@@ -82,13 +82,11 @@ function resetForm() {
   emailJs.value = "";
   linkJs.value = "";
   gitJs.value = "";
-  profileImage.style.background = `url(${dataCard.photo})`;
-  profileImage.style.backgroundSize = "cover";
-  profileImage.style.backgroundPosition = "center";
 }
 
 //Devuelve la tarjeta a su estado original.
 function resetCard() {
+  cardDefault();
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
@@ -96,11 +94,12 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
+  // profileImage.style.background = `url(${dataCard.photo})`;
+  // profilePreview.src = dataCard.photo;
 }
 
 //Función manejadora del botón RESET.
 function handleClickReset() {
-  cardDefault();
   resetForm();
   resetCard();
 }
@@ -119,9 +118,9 @@ collapsableMenu.forEach((item) =>
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
 const paletteSelection = (element) => {
   const card = document.querySelector(".card");
-  const cardStyles = ["palette1", "palette2", "palette3", "palette4"];
+  const cardStyles = ["palette1", "palette2", "palette3"];
   if (element.name === "palette") {
-    dataCard[element.name] = element.id;
+    dataCard[element.name] = parseInt(element.id);
     cardStyles.forEach((item) =>
       item === `palette${element.id}`
         ? card.classList.add(item)
@@ -148,8 +147,8 @@ const createCard = (event, element) => {
 const arrowPositioner = () => {
   collapsableMenu.forEach((section) =>
     !section.querySelector(".section-to-hide").classList.contains("collapsed")
-      ? section.querySelector(".arrow").classList.add("rotate")
-      : section.querySelector(".arrow").classList.remove("rotate")
+      ? section.querySelector(".skull").classList.add("rotate")
+      : section.querySelector(".skull").classList.remove("rotate")
   );
 }; //Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
 
@@ -190,7 +189,7 @@ function hideShow(event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
-/* 
+/*
 function handlerPalette(ev) {
   const palette = ev.currentTarget.value;
   dataCard.palette = palette;
