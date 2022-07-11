@@ -2,7 +2,8 @@
   background: linear-gradient(#f5f5f5, #ffffff);
   display: grid;
   grid-template-columns: 1fr;
-  min-height: calc(100vh - 6.1rem);
+ /*   min-height: calc(100vh - 6.1rem); */
+   align-content: space-between;
 
   @media all and (min-width: 768px) {
     grid-template-columns: 2fr 3fr;
@@ -26,6 +27,10 @@
 
 
 .rotate {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
+  transition-duration: 350ms;
+  
+}
+.skull {
   transition-duration: 350ms;
 }

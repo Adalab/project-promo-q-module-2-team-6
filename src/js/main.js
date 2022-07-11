@@ -186,7 +186,9 @@ const createCard = (event, element) => {
 };
 
 const arrowPositioner = () => {
-  collapsableMenu.forEach(section => !section.querySelector('.section-to-hide').classList.contains('collapsed') ? section.querySelector('.skull').classList.add('rotate') : section.querySelector('.skull').classList.remove('rotate'));
+  collapsableMenu.forEach(section => !section.querySelector('.section-to-hide').classList.contains('collapsed')
+    ? section.querySelector('.skull').classList.add('rotate')
+    : section.querySelector('.skull').classList.remove('rotate'));
 };//Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
 
 function menuCollapser (fieldsetElement) {
