@@ -180,3 +180,4 @@ function hideShow (event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
+
