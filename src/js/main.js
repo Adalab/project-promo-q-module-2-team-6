@@ -38,7 +38,7 @@ const dataCard = {
   email: '',
   linkedin: '',
   github: '',
-  photo: './assets/images/photo.png',
+  photo:'./assets/images/photo.png',
 };
 
 //Función para previsualizar la información de los inputs en la tarjeta.
@@ -46,7 +46,7 @@ const htmlPreview = () => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
-  previewEmail.href = dataCard.email;
+  previewEmail.href = `mailto: ${dataCard.email}`;
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
@@ -62,6 +62,8 @@ function handlePreviewData(event) {
 }
 
 form.addEventListener('keyup', handlePreviewData);
+
+
 
 //---------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
 
@@ -95,6 +97,7 @@ function resetForm() {
 
 //Devuelve la tarjeta a su estado original.
 function resetCard() {
+  cardDefault();
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
@@ -102,49 +105,41 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
+  // profileImage.style.background = `url(${dataCard.photo})`;
+  // profilePreview.src = dataCard.photo;
 }
+
 
 //Función manejadora del botón RESET.
 function handleClickReset() {
-  cardDefault();
   resetForm();
   resetCard();
 }
 
 resetBtn.addEventListener('click', handleClickReset);
 
-//------------------------------------Código funcionalidad MENÚS COLAPSABLES.
+//--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
-const collapsableMenu = document.querySelectorAll('.collapsablemenu'); //Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
-collapsableMenu.forEach((item) =>
-  item.addEventListener('click', hideShow, true)
-);
+const collapsableMenu = document.querySelectorAll('.collapsablemenu');//Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
+collapsableMenu.forEach(item => item.addEventListener('click', hideShow, true));
 //forEahc() va a ir recorriendo el objeto propiedad por propiedad. Lo que ponemos entre paréntesis es el nombre que le daremos a cada propiedad para referirnos a ellas dentro de la función flecha. En este caso le estamos diciendo que por cada item (propiedad) añada un eventListener.
 //Ponemos a la escucha cada una de las secciones que hay dento del form y establecemos que al hacer click en ellas se ejecute la funcion manejadorea hideshow.
 
+
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
 const paletteSelection = (element) => {
-  const card = document.querySelector('.card');
-  const cardStyles = ['palette1', 'palette2', 'palette3'];
+  const card = document.querySelector ('.card');
+  const cardStyles = ['palette1', 'palette2','palette3'];
   if (element.name === 'palette') {
-    dataCard[element.name] = element.id;
-    cardStyles.forEach((item) =>
-      item === `palette${element.id}`
-        ? card.classList.add(item)
-        : card.classList.remove(item)
-    );
+    dataCard[element.name] = parseInt(element.id);
+    cardStyles.forEach(item => item === `palette${element.id}` ? card.classList.add(item) :card.classList.remove(item));
   }
 };
 
 const createCard = (event, element) => {
-  if (
-    element.name === 'newCardButton' ||
-    element.parentElement.name === 'newCardButton'
-  ) {
+  if (element.name === 'newCardButton' || element.parentElement.name === 'newCardButton') {
     event.preventDefault();
-    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value
-      ? document.querySelector('.created').classList.remove('collapsed')
-      : document.querySelector('.check').classList.remove('collapsed');
+    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value ? document.querySelector('.created').classList.remove('collapsed') : document.querySelector('.check').classList.remove('collapsed');
     if (!document.querySelector('.created').classList.contains('collapsed')) {
       document.querySelector('.button-create').classList.add('inactived');
     }
@@ -152,41 +147,36 @@ const createCard = (event, element) => {
 };
 
 const arrowPositioner = () => {
-  collapsableMenu.forEach((section) =>
-    !section.querySelector('.section-to-hide').classList.contains('collapsed')
-      ? section.querySelector('.arrow').classList.add('rotate')
-      : section.querySelector('.arrow').classList.remove('rotate')
-  );
-}; //Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
+  collapsableMenu.forEach(section => !section.querySelector('.section-to-hide').classList.contains('collapsed')
+    ? section.querySelector('.skull').classList.add('rotate')
+    : section.querySelector('.skull').classList.remove('rotate'));
+};//Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
 
-function menuCollapser(fieldsetElement) {
+function menuCollapser (fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
-} //Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
-const otherMenusCollapser = (fieldsetElement) => {
+}//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
+
+const otherMenusCollapser = (fieldsetElement) =>{
   collapsableMenu.forEach((item) => {
-    if (
-      !item.querySelector('.section-to-hide').classList.contains('collapsed') &&
-      item !== fieldsetElement
-    ) {
+    if (!item.querySelector('.section-to-hide').classList.contains('collapsed') && item !== fieldsetElement) {
       item.querySelector('.section-to-hide').classList.add('collapsed');
     }
   });
-}; //Aquí estamos colapsando el resto de los menús cuándo uno de ellos se abre. Para ello estamos recorriendo de nuevo el objeto y por cada una de sus propiedades (item) estamos comprobando si hay alguna que no tenga la clase collapsed (es decir, que esté desplegada) y que no sea la misma que está siendo clickada en este momento. Si eso se da, lo que hacemos es añadirle la clase collapsed para que la única que quede desplegada sea la que acabamos de abrir.
+};//Aquí estamos colapsando el resto de los menús cuándo uno de ellos se abre. Para ello estamos recorriendo de nuevo el objeto y por cada una de sus propiedades (item) estamos comprobando si hay alguna que no tenga la clase collapsed (es decir, que esté desplegada) y que no sea la misma que está siendo clickada en este momento. Si eso se da, lo que hacemos es añadirle la clase collapsed para que la única que quede desplegada sea la que acabamos de abrir.
+
 
 //------------------------------------------------------FUNCIÓN MANEJADORA.
 
-function hideShow(event) {
-  const clickedElement = event.target; //Esta variable nos indica qué elemento en concreto está siendo clickado por el usuario.
+function hideShow (event) {
+  const clickedElement = event.target;//Esta variable nos indica qué elemento en concreto está siendo clickado por el usuario.
   const fieldsetElement = event.currentTarget;
   //Guardamos en una variable cuál de los fieldsets está siendo clickado.
   //Es decir, event.currentTarget te devuelve cuál de los elementos que tienen añadido el addEventListener está siendo clickado, mientras que event.target te devuelve qué en particular está clickando el usuario.
 
-  if (
-    fieldsetElement === clickedElement ||
-    clickedElement.parentElement.classList.contains('js-legend')
-  ) {
+
+  if (fieldsetElement === clickedElement || clickedElement.parentElement.classList.contains('js-legend')) {
     menuCollapser(fieldsetElement);
     otherMenusCollapser(fieldsetElement);
     arrowPositioner(fieldsetElement);
@@ -196,3 +186,4 @@ function hideShow(event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
+

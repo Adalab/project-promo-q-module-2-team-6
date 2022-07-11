@@ -11,7 +11,7 @@
     width: 25rem;
 
     @media all and (min-width: 768px) {
-      width: 41.9rem;
+      width: 30.9rem;
       
     }
   }
@@ -31,7 +31,7 @@
     display: flex;
     justify-content: center;
     margin: 0rem;
-    height: 11.1rem;
+    height: 16.1rem;
     
    @media all and (min-width: 768px) {
       justify-content: flex-start;
@@ -40,6 +40,6 @@
   }
 
   &__logo {
-    width: 20.1rem;
+    width: 34.9rem;
   }
 }
