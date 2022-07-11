@@ -112,51 +112,6 @@ function handleClickReset() {
 
 resetBtn.addEventListener('click', handleClickReset);
 
-
-
-/* //--------------------------Código funcionalidad MENÚS COLAPSABLES (sin objetos).
-/* const formElement = document.querySelector('.form');
-
-const localizeFieldset = (clickedElement) => clickedElement.classList.contains('js-legend') ? clickedElement : clickedElement.parentElement;
-
-const arrowPositioner = (sectionClicked, collapsableSection) => {
-  !collapsableSection.classList.contains('collapsed') ?sectionClicked.querySelector('.arrow').classList.add('rotate') : sectionClicked.querySelector('.arrow').classList.remove('rotate');
-};
-
-const menuCollapser = (sectionClicked)=> {
-  const collapsableSection = sectionClicked.parentElement.querySelector('.section-to-hide');
-  collapsableSection.classList.toggle('collapsed');
-  arrowPositioner(sectionClicked, collapsableSection);
-
-  if (!collapsableSection.classList.contains('collapsed')) {
-
-    if (collapsableSection.classList.contains('fill-inputs-section')) {
-      document.querySelector('.container-collapsible').classList.add('collapsed');
-      document.querySelector('.design-colors').classList.add('collapsed');
-
-    } else if (collapsableSection.classList.contains('design-colors')) {
-      document.querySelector('.container-collapsible').classList.add('collapsed');
-      document.querySelector('.fill-inputs-section').classList.add('collapsed');
-
-    } else if (collapsableSection.classList.contains('container-collapsible')) {
-      document.querySelector('.design-colors').classList.add('collapsed');
-      document.querySelector('.fill-inputs-section').classList.add('collapsed');
-    }
-  }
-};
-
-const handleFunction = (event) => {
-  const clickedElement = event.target;
-  if (clickedElement.classList.contains('js-legend') || clickedElement.parentElement.classList.contains('js-legend')) {
-    const sectionClass = localizeFieldset(clickedElement);
-    menuCollapser(sectionClass);
-  }
-};
-
-formElement.addEventListener('click', handleFunction); */
-
-
-
 //--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
 const collapsableMenu = document.querySelectorAll('.collapsablemenu');//Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
@@ -170,7 +125,7 @@ const paletteSelection = (element) => {
   const card = document.querySelector ('.card');
   const cardStyles = ['palette1', 'palette2','palette3'];
   if (element.name === 'palette') {
-    dataCard[element.name] = element.id;
+    dataCard[element.name] = parseInt(element.id);
     cardStyles.forEach(item => item === `palette${element.id}` ? card.classList.add(item) :card.classList.remove(item));
   }
 };
