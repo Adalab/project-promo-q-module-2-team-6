@@ -190,3 +190,21 @@ function hideShow(event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
+/* 
+function handlerPalette(ev) {
+  const palette = ev.currentTarget.value;
+  dataCard.palette = palette;
+  previewContainer.classList.remove(
+    "palette1",
+    "palette2",
+    "palette3",
+    "palette4"
+  );
+
+  previewContainer.classList.add(`palette${palette}`);
+}
+
+for (const oneRadio of allRadio) {
+  //allRadio es un array, lo recorro y pongo cada elemto a la escucha
+  oneRadio.addEventListener("click", handlerPalette);
+} */
