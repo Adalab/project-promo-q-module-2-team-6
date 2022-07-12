@@ -20,9 +20,9 @@ const imgJs = document.querySelector('.js-img-input'); //Img.
 const emailJs = document.querySelector('.js-email-input'); //Email.
 const linkJs = document.querySelector('.js-link-input'); //Linkedin.
 const gitJs = document.querySelector('.js-git-input'); //GitHub.
-const phoneJs = document.querySelector('.js-preview-phone'); //Phone.g
-
-//Elementos del FORMULARIO. IMAGEN.
+const phoneJs = document.querySelector('.js-preview-phone'); //Phone.
+const linkCard = document.querySelector('.link');
+const create = document.querySelector('.button-create');
 const profileImage = document.querySelector('.js__profile-image');
 
 paletteDefault.setAttribute('checked', '');
@@ -116,7 +116,7 @@ resetBtn.addEventListener('click', handleClickReset);
 
 //--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
-const collapsableMenu = document.querySelectorAll('.collapsablemenu');
+const collapsableMenu = document.querySelectorAll('.collapsablemenu'); //Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
 collapsableMenu.forEach((item) =>
   item.addEventListener('click', hideShow, true)
 );
@@ -162,7 +162,7 @@ const arrowPositioner = () => {
 function menuCollapser(fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
-}
+} //Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
 const otherMenusCollapser = (fieldsetElement) => {
   collapsableMenu.forEach((item) => {
@@ -182,7 +182,6 @@ const otherMenusCollapser = (fieldsetElement) => {
 function hideShow(event) {
   const clickedElement = event.target;
   const fieldsetElement = event.currentTarget;
-
   if (
     fieldsetElement === clickedElement ||
     clickedElement.parentElement.classList.contains('js-legend')
@@ -194,3 +193,44 @@ function hideShow(event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
+/*
+function handlerPalette(ev) {
+  const palette = ev.currentTarget.value;
+  dataCard.palette = palette;
+  previewContainer.classList.remove(
+    "palette1",
+    "palette2",
+    "palette3",
+    "palette4"
+  );
+
+  previewContainer.classList.add(`palette${palette}`);
+}
+
+for (const oneRadio of allRadio) {
+  //allRadio es un array, lo recorro y pongo cada elemto a la escucha
+  oneRadio.addEventListener("click", handlerPalette);
+} */
+
+
+function handleCreatedCard(ev){
+  ev.preventDefault();
+  fetch('https://awesome-profile-cards.herokuapp.com/card',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(dataCard)
+    } )
+    .then((response) => response.json())
+    .then((serverResponse) => {
+      if (serverResponse.success){
+        linkCard.innerHTML = serverResponse.cardURL;
+        linkCard.href = serverResponse.cardURL;
+      }
+      else {
+        linkCard.innerHTML = 'Error';
+      }
+    });
+}
+
+create.addEventListener('click', handleCreatedCard);

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // -------------------- Preparación inicial div img ----------------
 
