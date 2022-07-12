@@ -228,9 +228,9 @@ function handleCreatedCard(ev){
         linkCard.innerHTML = serverResponse.cardURL;
         linkCard.href = serverResponse.cardURL;
 
-        buttonShare.href = `https://twitter.com/intent/tweet?text=Hello%20world%mi%tarjeta%${serverResponse.cardURL}`;
+        buttonShare.href = `https://twitter.com/intent/tweet?text=Hello%20world%20mi%20tarjeta&url=${serverResponse.cardURL}`;
 
-        console.log(serverResponse)
+        console.log(serverResponse);
       }
       else {
         linkCard.innerHTML = 'Error';
