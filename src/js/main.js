@@ -205,6 +205,7 @@ for (const oneRadio of allRadio) {
   oneRadio.addEventListener("click", handlerPalette);
 } */
 
+const buttonShare = document.querySelector('.button-share');
 
 function handleCreatedCard(ev){
   ev.preventDefault();
@@ -219,6 +220,9 @@ function handleCreatedCard(ev){
       if (serverResponse.success){
         linkCard.innerHTML = serverResponse.cardURL;
         linkCard.href = serverResponse.cardURL;
+
+        buttonShare.href = `https://twitter.com/intent/tweet?text=Hello%20world%mi%tarjeta%${serverResponse.cardURL}`;
+
         console.log(serverResponse)
       }
       else {
