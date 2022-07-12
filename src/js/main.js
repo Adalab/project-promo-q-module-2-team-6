@@ -119,15 +119,9 @@ collapsableMenu.forEach((item) =>
 
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
 const paletteSelection = (element) => {
-<<<<<<< HEAD
   const card = document.querySelector('.card');
-  const cardStyles = ['palette1', 'palette2', 'palette3'];
+  const cardStyles = ['palette1', 'palette2', 'palette3', 'palette4'];
   if (element.name === 'palette') {
-=======
-  const card = document.querySelector(".card");
-  const cardStyles = ["palette1", "palette2", "palette3", "palette4"];
-  if (element.name === "palette") {
->>>>>>> c514e1aa7d346cccbe086b567d336637f65775f3
     dataCard[element.name] = parseInt(element.id);
     cardStyles.forEach((item) =>
       item === `palette${element.id}`
