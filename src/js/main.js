@@ -77,7 +77,6 @@ function cardDefault() {
 
 //Resetea el formulario.
 function resetForm() {
-
   dataCard.palette = 1;
   nameJs.value = '';
   jobJs.value = '';
@@ -101,8 +100,10 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
-  // profileImage.style.background = `url(${dataCard.photo})`;
-  // profilePreview.src = dataCard.photo;
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profileImage.style.backgroundPosition = 'center';
+  profilePreview.src = dataCard.photo;
 }
 
 //Función manejadora del botón RESET.
