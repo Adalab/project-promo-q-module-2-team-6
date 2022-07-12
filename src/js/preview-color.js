@@ -5,7 +5,6 @@
 //parte imagen
 const newFile = new FileReader();
 const fileField = document.querySelector('.js__profile-upload-btn');
-const profileImage = document.querySelector('.js__profile-image');
 const profilePreview = document.querySelector('.js-preview-photo');
 
 //@param { evento } e

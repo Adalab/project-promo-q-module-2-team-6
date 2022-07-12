@@ -23,6 +23,7 @@ const gitJs = document.querySelector('.js-git-input'); //GitHub.
 const phoneJs = document.querySelector('.js-preview-phone'); //Phone.
 const linkCard = document.querySelector('.link');
 const create = document.querySelector('.button-create');
+const profileImage = document.querySelector('.js__profile-image');
 
 paletteDefault.setAttribute('checked', '');
 
@@ -84,6 +85,9 @@ function resetForm() {
   emailJs.value = '';
   linkJs.value = '';
   gitJs.value = '';
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profileImage.style.backgroundPosition = 'center';
 }
 
 //Devuelve la tarjeta a su estado original.
@@ -97,6 +101,8 @@ function resetCard() {
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
   profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profileImage.style.backgroundPosition = 'center';
   profilePreview.src = dataCard.photo;
 }
 
@@ -114,8 +120,7 @@ const collapsableMenu = document.querySelectorAll('.collapsablemenu'); //Con que
 collapsableMenu.forEach((item) =>
   item.addEventListener('click', hideShow, true)
 );
-//forEahc() va a ir recorriendo el objeto propiedad por propiedad. Lo que ponemos entre paréntesis es el nombre que le daremos a cada propiedad para referirnos a ellas dentro de la función flecha. En este caso le estamos diciendo que por cada item (propiedad) añada un eventListener.
-//Ponemos a la escucha cada una de las secciones que hay dento del form y establecemos que al hacer click en ellas se ejecute la funcion manejadorea hideshow.
+
 
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
 const paletteSelection = (element) => {
@@ -152,7 +157,7 @@ const arrowPositioner = () => {
       ? section.querySelector('.skull').classList.add('rotate')
       : section.querySelector('.skull').classList.remove('rotate')
   );
-}; //Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
+};
 
 function menuCollapser(fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
@@ -168,7 +173,9 @@ const otherMenusCollapser = (fieldsetElement) => {
       item.querySelector('.section-to-hide').classList.add('collapsed');
     }
   });
-}; //Aquí estamos colapsando el resto de los menús cuándo uno de ellos se abre. Para ello estamos recorriendo de nuevo el objeto y por cada una de sus propiedades (item) estamos comprobando si hay alguna que no tenga la clase collapsed (es decir, que esté desplegada) y que no sea la misma que está siendo clickada en este momento. Si eso se da, lo que hacemos es añadirle la clase collapsed para que la única que quede desplegada sea la que acabamos de abrir.
+};
+
+
 
 //------------------------------------------------------FUNCIÓN MANEJADORA.
 
