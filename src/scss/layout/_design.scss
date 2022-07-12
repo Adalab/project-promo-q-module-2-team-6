@@ -111,7 +111,6 @@
 .color12 {
   @include color-square(#ffff24);
 }
-
-// .hidden {
-//     display: none;
-// }
+.hidden {
+  display: none;
+}
