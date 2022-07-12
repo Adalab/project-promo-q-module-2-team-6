@@ -21,6 +21,8 @@ const emailJs = document.querySelector('.js-email-input'); //Email.
 const linkJs = document.querySelector('.js-link-input'); //Linkedin.
 const gitJs = document.querySelector('.js-git-input'); //GitHub.
 const phoneJs = document.querySelector('.js-preview-phone'); //Phone.
+const linkCard = document.querySelector('.link');
+const create = document.querySelector('.button-create');
 
 paletteDefault.setAttribute('checked', '');
 
@@ -94,8 +96,8 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
-  // profileImage.style.background = `url(${dataCard.photo})`;
-  // profilePreview.src = dataCard.photo;
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profilePreview.src = dataCard.photo;
 }
 
 //Función manejadora del botón RESET.
@@ -171,11 +173,8 @@ const otherMenusCollapser = (fieldsetElement) => {
 //------------------------------------------------------FUNCIÓN MANEJADORA.
 
 function hideShow(event) {
-  const clickedElement = event.target; //Esta variable nos indica qué elemento en concreto está siendo clickado por el usuario.
+  const clickedElement = event.target;
   const fieldsetElement = event.currentTarget;
-  //Guardamos en una variable cuál de los fieldsets está siendo clickado.
-  //Es decir, event.currentTarget te devuelve cuál de los elementos que tienen añadido el addEventListener está siendo clickado, mientras que event.target te devuelve qué en particular está clickando el usuario.
-
   if (
     fieldsetElement === clickedElement ||
     clickedElement.parentElement.classList.contains('js-legend')
@@ -183,9 +182,7 @@ function hideShow(event) {
     menuCollapser(fieldsetElement);
     otherMenusCollapser(fieldsetElement);
     arrowPositioner(fieldsetElement);
-  } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
-  //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
-  //A continuación llamamos a las otras dos funciones para que se ejecuten.
+  }
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
@@ -207,3 +204,27 @@ for (const oneRadio of allRadio) {
   //allRadio es un array, lo recorro y pongo cada elemto a la escucha
   oneRadio.addEventListener("click", handlerPalette);
 } */
+
+
+function handleCreatedCard(ev){
+  ev.preventDefault();
+  fetch('https://awesome-profile-cards.herokuapp.com/card',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(dataCard)
+    } )
+    .then((response) => response.json())
+    .then((serverResponse) => {
+      if (serverResponse.success){
+        linkCard.innerHTML = serverResponse.cardURL;
+        linkCard.href = serverResponse.cardURL;
+        console.log(serverResponse)
+      }
+      else {
+        linkCard.innerHTML = 'Error';
+      }
+    });
+}
+
+create.addEventListener('click', handleCreatedCard);
