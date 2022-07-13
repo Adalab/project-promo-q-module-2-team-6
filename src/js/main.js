@@ -56,7 +56,7 @@ function handlePreviewData(event) {
   if (clickedElement) {
     dataCard[clickedElement.name] = clickedElement.value;
   }
-  htmlPreview(clickedElement);
+  htmlPreview();
 }
 
 form.addEventListener("keyup", handlePreviewData);
@@ -196,14 +196,20 @@ function saveDataLocalStorage() {
 }
 function getDataLocalStorage() {
   const dataLocalStorage = JSON.parse(localStorage.getItem("userData"));
-  nameJs.value = dataLocalStorage.name;
-  jobJs.value = dataLocalStorage.job;
-  profileImage.style.background = `url(${dataLocalStorage.photo})`;
-  emailJs.value = dataLocalStorage.email;
-  linkJs.value = dataLocalStorage.linkedin;
-  gitJs.value = dataLocalStorage.github;
-  phoneJs.value = dataLocalStorage.phone;
+  if (dataLocalStorage !== null) {
+    nameJs.value = dataLocalStorage.name;
+    jobJs.value = dataLocalStorage.job;
+    profileImage.style.background = `url(${dataLocalStorage.photo})`;
+    profileImage.style.backgroundSize = "cover";
+    profileImage.style.backgroundPosition = "center";
+    emailJs.value = dataLocalStorage.email;
+    linkJs.value = dataLocalStorage.linkedin;
+    gitJs.value = dataLocalStorage.github;
+    phoneJs.value = dataLocalStorage.phone;
+  }
+  htmlPreview(dataLocalStorage);
 }
+
 getDataLocalStorage();
 
 const buttonShare = document.querySelector(".button-share");
