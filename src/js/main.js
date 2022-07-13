@@ -20,7 +20,7 @@ const imgJs = document.querySelector(".js-img-input"); //Img.
 const emailJs = document.querySelector(".js-email-input"); //Email.
 const linkJs = document.querySelector(".js-link-input"); //Linkedin.
 const gitJs = document.querySelector(".js-git-input"); //GitHub.
-const phoneJs = document.querySelector(".js-preview-phone"); //Phone.
+const phoneJs = document.querySelector(".js-phone-input"); //Phone.
 const linkCard = document.querySelector(".link");
 const create = document.querySelector(".button-create");
 const profileImage = document.querySelector(".js__profile-image");
@@ -190,24 +190,21 @@ function hideShow(event) {
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
-/*
-function handlerPalette(ev) {
-  const palette = ev.currentTarget.value;
-  dataCard.palette = palette;
-  previewContainer.classList.remove(
-    "palette1",
-    "palette2",
-    "palette3",
-    "palette4"
-  );
-
-  previewContainer.classList.add(`palette${palette}`);
+function saveDataLocalStorage() {
+  localStorage.setItem("userData", JSON.stringify(dataCard));
+  /* console.log(localStorage.getItem("juan")); */
 }
-
-for (const oneRadio of allRadio) {
-  //allRadio es un array, lo recorro y pongo cada elemto a la escucha
-  oneRadio.addEventListener("click", handlerPalette);
-} */
+function getDataLocalStorage() {
+  const dataLocalStorage = JSON.parse(localStorage.getItem("userData"));
+  nameJs.value = dataLocalStorage.name;
+  jobJs.value = dataLocalStorage.job;
+  profileImage.style.background = `url(${dataLocalStorage.photo})`;
+  emailJs.value = dataLocalStorage.email;
+  linkJs.value = dataLocalStorage.linkedin;
+  gitJs.value = dataLocalStorage.github;
+  phoneJs.value = dataLocalStorage.phone;
+}
+getDataLocalStorage();
 
 const buttonShare = document.querySelector(".button-share");
 
@@ -230,7 +227,11 @@ function handleCreatedCard(ev) {
       } else {
         linkCard.innerHTML = "Error";
       }
+    })
+    .catch((error) => {
+      console.error(error);
     });
+  saveDataLocalStorage();
 }
 
 create.addEventListener("click", handleCreatedCard);
