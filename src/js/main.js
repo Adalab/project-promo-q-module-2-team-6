@@ -59,7 +59,7 @@ function handlePreviewData(event) {
   if (clickedElement) {
     dataCard[clickedElement.name] = clickedElement.value;
   }
-  htmlPreview(clickedElement);
+  htmlPreview(dataCard);
 }
 
 form.addEventListener('keyup', handlePreviewData);
@@ -213,8 +213,8 @@ function getDataLocalStorage() {
     linkJs.value = dataLocalStorage.linkedin;
     gitJs.value = dataLocalStorage.github;
     phoneJs.value = dataLocalStorage.phone;
+    htmlPreview(dataLocalStorage);
   }
-  htmlPreview(dataLocalStorage);
 }
 
 getDataLocalStorage();
@@ -238,10 +238,10 @@ function handleCreatedCard(ev) {
       } else {
         linkCard.innerHTML = 'Error';
       }
+    })
+    .catch((error) => {
+      console.error(error);
     });
-  // .catch((error) => {
-  //   console.error(error);
-  //});
   saveDataLocalStorage();
 }
 
