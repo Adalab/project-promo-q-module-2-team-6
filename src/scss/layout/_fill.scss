@@ -17,7 +17,9 @@
 
 .fill-section input {
   padding: 5px;
-  border: 1px solid $main_text_color;
+  border: 1px solid #919191;
+  background-color: #919191;
+  border-radius: 5px;
   &:focus{
     outline: none;
     outline: red solid 2.5px;
@@ -115,3 +117,5 @@
     darle los estilos que queremos */
   display: none;
 }
+
+

@@ -12,7 +12,11 @@
   @media all and (min-width: 768px) {
     border-radius: 6px;
     width: 85%;
-    height: auto;
+    height: 95vh;
+  }
+
+  @media all and (min-width: 1200px) {
+    height: 82.6rem;
   }
 }
 

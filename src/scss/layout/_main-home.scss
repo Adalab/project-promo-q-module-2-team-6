@@ -1,14 +1,14 @@
 .main {
     background: $dark-gradient;
     padding: 19.34rem 2.8rem 0rem 2.72rem;
-    min-height: calc(100vh - 11rem);
+    min-height: calc(100vh - 10.8rem);
     display: flex;
     flex-direction: column;
     align-items: center;
    
 
     @media all and (min-width: 768px) {
-        height: calc(100vh - 6.1rem);
+        height: calc(100vh - 9.1rem);
         justify-content: flex-start;
         padding-top: calc(100vh - 59vh);
     }
