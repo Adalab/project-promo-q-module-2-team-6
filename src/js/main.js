@@ -95,7 +95,7 @@ function resetCard() {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
-  previewLink.href = dataCard.linkedin;
+  previewEmail.href = dataCard.email;
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;

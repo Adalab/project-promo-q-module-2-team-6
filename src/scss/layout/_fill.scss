@@ -17,7 +17,11 @@
 
 .fill-section input {
   padding: 5px;
-  border: 1px solid $form_color;
+  border: 1px solid $main_text_color;
+  &:focus{
+    outline: none;
+    outline: red solid 2.5px;
+  }
 }
 .text-fill {
   color: $secondary_color;
@@ -70,7 +74,7 @@
   width: 30px;
   height: 30px;
   margin-top: 30px;
-  border: solid 1px $form_color;
+  border: solid 1px $secondary_color;
   grid-column-start: 2;
   align-items: baseline;
   background-size: cover;
@@ -88,7 +92,7 @@
   border: 0;
   box-shadow: 0 0 5px rgba(#000, 0.3);
   box-sizing: border-box;
-  color: #fff;
+  color: #000;
   font-size: 1.4rem;
   padding: 1rem 1.5rem;
   width: 140px;
@@ -97,6 +101,14 @@
   height: 30px;
   border-radius: 4px;
   text-transform: capitalize;
+  transition-duration: 500ms; 
+  &:hover{
+    background-color: $secondary_color; 
+}
+&:active {
+  background-color: $secondary_color_active;
+  transition-duration: 250ms; 
+}
 }
 .image__hiddenField {
   /* Ocultamos el input de tipo "file" porque no podemos 
