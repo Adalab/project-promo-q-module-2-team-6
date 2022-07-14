@@ -27,6 +27,7 @@ const create = document.querySelector('.button-create');
 const profileImage = document.querySelector('.js__profile-image');
 const profilePreview = document.querySelector('.js-preview-photo');
 const collapsableMenu = document.querySelectorAll('.collapsablemenu');
+const buttonShare = document.querySelector('.button-share');
 
 
 //Definimos el objeto dataCard.
@@ -124,10 +125,23 @@ function resetCard() {
 
 const resetLocalStorage = () => localStorage.removeItem('userData');
 
-//Función manejadora del botón RESET.
+const collapseCreateCardSection = () => {
+  if (document.querySelector('.button-create').classList.contains('inactived')) {
+    document.querySelector('.button-create').classList.remove('inactived');
+  }
+  if (!document.querySelector('.created').classList.contains('collapsed')) {
+    document.querySelector('.created').classList.add('collapsed');
+  }
+  if (document.querySelector('.check').classList.contains('collapsed')) {
+    document.querySelector('.check').classList.add('collapsed');
+  }
+  
+};
+
 function handleClickReset() {
   resetForm();
   resetCard();
+  collapseCreateCardSection();
   resetLocalStorage();
 }
 
@@ -209,7 +223,7 @@ collapsableMenu.forEach((item) =>
 );
 
 
-//-----------------------------------------------------------
+//--------------------------------------------------------LOCAL STORAGE.
 
 function saveDataLocalStorage() {
   localStorage.setItem('userData', JSON.stringify(dataCard));
@@ -234,10 +248,10 @@ function getDataLocalStorage() {
 
 getDataLocalStorage();
 
-const buttonShare = document.querySelector('.button-share');
 
-function handleCreatedCard(ev) {
-  ev.preventDefault();
+//--------------------------------------------------------CREAR TARJETA.
+
+function apiCall () {
   fetch('https://awesome-profile-cards.herokuapp.com/card', {
     method: 'POST',
     headers: {
@@ -259,7 +273,11 @@ function handleCreatedCard(ev) {
     .catch((error) => {
       console.error(`Se ha producido un error ${error}`);
     });
+}
 
+function handleCreatedCard(ev) {
+  ev.preventDefault();
+  apiCall();
   saveDataLocalStorage();
 }
 
