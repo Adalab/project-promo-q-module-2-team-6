@@ -1,28 +1,31 @@
 'use strict';
 
-
 //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
 //Elementos de la TARJETA.
-const previewName = document.querySelector('.js-preview-name');//Name.
-const previewJob = document.querySelector('.js-preview-job');//Job.
-const previewPhone = document.querySelector('.js-preview-phone');//Phone.
-const previewLink = document.querySelector('.js-preview-link');//Linkedin.
-const previewEmail = document.querySelector('.js-preview-email');//Email.
-const previewGithub = document.querySelector('.js-preview-github');//GitHub.
-const previewPhoto = document.querySelector('.js-preview-photo');//Photo.
-const resetBtn = document.querySelector('.js-resetBtn');//Elemento botón RESET.
-const form = document.querySelector('.form');//Elemnto formulario.
+const previewName = document.querySelector('.js-preview-name'); //Name.
+const previewJob = document.querySelector('.js-preview-job'); //Job.
+const previewPhone = document.querySelector('.js-preview-phone'); //Phone.
+const previewLink = document.querySelector('.js-preview-link'); //Linkedin.
+const previewEmail = document.querySelector('.js-preview-email'); //Email.
+const previewGithub = document.querySelector('.js-preview-github'); //GitHub.
+const previewPhoto = document.querySelector('.js-preview-photo'); //Photo.
+const resetBtn = document.querySelector('.js-resetBtn'); //Elemento botón RESET.
+const form = document.querySelector('.form'); //Elemnto formulario.
 const paletteDefault = document.getElementById('1');
 
-//Elementos del FORMULARIO.
-const nameJs = document.querySelector('.js-name-input');//Name.
-const jobJs = document.querySelector('.js-job-input');//Job.
-const imgJs = document.querySelector('.js-img-input');//Img.
-const emailJs = document.querySelector('.js-email-input');//Email.
-const linkJs = document.querySelector('.js-link-input');//Linkedin.
-const gitJs = document.querySelector('.js-git-input');//GitHub.
-const phoneJs = document.querySelector('.js-preview-phone');//Phone.
 
+//Elementos del FORMULARIO.
+const nameJs = document.querySelector('.js-name-input'); //Name.
+const jobJs = document.querySelector('.js-job-input'); //Job.
+const imgJs = document.querySelector('.js-img-input'); //Img.
+const emailJs = document.querySelector('.js-email-input'); //Email.
+const linkJs = document.querySelector('.js-link-input'); //Linkedin.
+const gitJs = document.querySelector('.js-git-input'); //GitHub.
+const phoneJs = document.querySelector('.js-phone-input'); //Phone.
+const linkCard = document.querySelector('.link');
+const create = document.querySelector('.button-create');
+const profileImage = document.querySelector('.js__profile-image');
+const profilePreview = document.querySelector('.js-preview-photo');
 
 
 paletteDefault.setAttribute('checked', '');
@@ -36,11 +39,11 @@ const dataCard = {
   email: '',
   linkedin: '',
   github: '',
-  photo:'./assets/images/photo.png',
+  photo: './assets/images/photo.png',
 };
 
 //Función para previsualizar la información de los inputs en la tarjeta.
-const htmlPreview = () => {
+const htmlPreview = (dataCard) => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
@@ -56,12 +59,10 @@ function handlePreviewData(event) {
   if (clickedElement) {
     dataCard[clickedElement.name] = clickedElement.value;
   }
-  htmlPreview(clickedElement);
+  htmlPreview(dataCard);
 }
 
 form.addEventListener('keyup', handlePreviewData);
-
-
 
 //---------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
 
@@ -87,6 +88,9 @@ function resetForm() {
   emailJs.value = '';
   linkJs.value = '';
   gitJs.value = '';
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profileImage.style.backgroundPosition = 'center';
 }
 
 //Devuelve la tarjeta a su estado original.
@@ -99,10 +103,11 @@ function resetCard() {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
-  // profileImage.style.background = `url(${dataCard.photo})`;
-  // profilePreview.src = dataCard.photo;
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profileImage.style.backgroundPosition = 'center';
+  profilePreview.src = dataCard.photo;
 }
-
 
 //Función manejadora del botón RESET.
 function handleClickReset() {
@@ -114,26 +119,34 @@ resetBtn.addEventListener('click', handleClickReset);
 
 //--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
-const collapsableMenu = document.querySelectorAll('.collapsablemenu');//Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
-collapsableMenu.forEach(item => item.addEventListener('click', hideShow, true));
-//forEahc() va a ir recorriendo el objeto propiedad por propiedad. Lo que ponemos entre paréntesis es el nombre que le daremos a cada propiedad para referirnos a ellas dentro de la función flecha. En este caso le estamos diciendo que por cada item (propiedad) añada un eventListener.
-//Ponemos a la escucha cada una de las secciones que hay dento del form y establecemos que al hacer click en ellas se ejecute la funcion manejadorea hideshow.
-
+const collapsableMenu = document.querySelectorAll('.collapsablemenu'); //Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
+collapsableMenu.forEach((item) =>
+  item.addEventListener('click', hideShow, true)
+);
 
 //----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
 const paletteSelection = (element) => {
-  const card = document.querySelector ('.card');
-  const cardStyles = ['palette1', 'palette2','palette3'];
+  const card = document.querySelector('.card');
+  const cardStyles = ['palette1', 'palette2', 'palette3', 'palette4'];
   if (element.name === 'palette') {
     dataCard[element.name] = parseInt(element.id);
-    cardStyles.forEach(item => item === `palette${element.id}` ? card.classList.add(item) :card.classList.remove(item));
+    cardStyles.forEach((item) =>
+      item === `palette${element.id}`
+        ? card.classList.add(item)
+        : card.classList.remove(item)
+    );
   }
 };
 
 const createCard = (event, element) => {
-  if (element.name === 'newCardButton' || element.parentElement.name === 'newCardButton') {
+  if (
+    element.name === 'newCardButton' ||
+    element.parentElement.name === 'newCardButton'
+  ) {
     event.preventDefault();
-    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value ? document.querySelector('.created').classList.remove('collapsed') : document.querySelector('.check').classList.remove('collapsed');
+    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value
+      ? document.querySelector('.created').classList.remove('collapsed')
+      : document.querySelector('.check').classList.remove('collapsed');
     if (!document.querySelector('.created').classList.contains('collapsed')) {
       document.querySelector('.button-create').classList.add('inactived');
     }
@@ -141,43 +154,97 @@ const createCard = (event, element) => {
 };
 
 const arrowPositioner = () => {
-  collapsableMenu.forEach(section => !section.querySelector('.section-to-hide').classList.contains('collapsed')
-    ? section.querySelector('.skull').classList.add('rotate')
-    : section.querySelector('.skull').classList.remove('rotate'));
-};//Con esta función volvemos a recorrer los parámetros del objeto (es decir, los tres fieldsets) con un condicional (ternario) cuyo objetivo es rotar la flecha si la sección del fieldset está oculta.
+  collapsableMenu.forEach((section) =>
+    !section.querySelector('.section-to-hide').classList.contains('collapsed')
+      ? section.querySelector('.skull').classList.add('rotate')
+      : section.querySelector('.skull').classList.remove('rotate')
+  );
+};
 
-function menuCollapser (fieldsetElement) {
+function menuCollapser(fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
+} //Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
 
-}//Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
-
-const otherMenusCollapser = (fieldsetElement) =>{
+const otherMenusCollapser = (fieldsetElement) => {
   collapsableMenu.forEach((item) => {
-    if (!item.querySelector('.section-to-hide').classList.contains('collapsed') && item !== fieldsetElement) {
+    if (
+      !item.querySelector('.section-to-hide').classList.contains('collapsed') &&
+      item !== fieldsetElement
+    ) {
       item.querySelector('.section-to-hide').classList.add('collapsed');
     }
   });
-};//Aquí estamos colapsando el resto de los menús cuándo uno de ellos se abre. Para ello estamos recorriendo de nuevo el objeto y por cada una de sus propiedades (item) estamos comprobando si hay alguna que no tenga la clase collapsed (es decir, que esté desplegada) y que no sea la misma que está siendo clickada en este momento. Si eso se da, lo que hacemos es añadirle la clase collapsed para que la única que quede desplegada sea la que acabamos de abrir.
-
+};
 
 //------------------------------------------------------FUNCIÓN MANEJADORA.
 
-function hideShow (event) {
-  const clickedElement = event.target;//Esta variable nos indica qué elemento en concreto está siendo clickado por el usuario.
+function hideShow(event) {
+  const clickedElement = event.target;
   const fieldsetElement = event.currentTarget;
-  //Guardamos en una variable cuál de los fieldsets está siendo clickado.
-  //Es decir, event.currentTarget te devuelve cuál de los elementos que tienen añadido el addEventListener está siendo clickado, mientras que event.target te devuelve qué en particular está clickando el usuario.
-
-
-  if (fieldsetElement === clickedElement || clickedElement.parentElement.classList.contains('js-legend')) {
+  if (
+    fieldsetElement === clickedElement ||
+    clickedElement.parentElement.classList.contains('js-legend')
+  ) {
     menuCollapser(fieldsetElement);
     otherMenusCollapser(fieldsetElement);
     arrowPositioner(fieldsetElement);
-  } //Traduccioón = Si el elemento que está siendo clickado por el usuario es igual a la sección que posee el addEventListener O el elemento que está siendo clickado tiene un contenedor padre con la clase js-legend, entonces llama a la función menuCollapser (que va a colapsar el menú correspondiente).
-  //El sentido de este condicional es evitar que se colapsen de nuevo los menús al hacer click sobre cualquiera de los inputs.
-  //A continuación llamamos a las otras dos funciones para que se ejecuten.
+  }
   paletteSelection(clickedElement);
   createCard(event, clickedElement);
 }
+
+
+function saveDataLocalStorage() {
+  localStorage.setItem('userData', JSON.stringify(dataCard));
+  /* console.log(localStorage.getItem('juan')); */
+}
+
+
+function getDataLocalStorage() {
+  const dataLocalStorage = JSON.parse(localStorage.getItem('userData'));
+  if (dataLocalStorage !== null) {
+    nameJs.value = dataLocalStorage.name;
+    jobJs.value = dataLocalStorage.job;
+    profileImage.style.background = `url(${dataLocalStorage.photo})`;
+    profileImage.style.backgroundSize = 'cover';
+    profileImage.style.backgroundPosition = 'center';
+    emailJs.value = dataLocalStorage.email;
+    linkJs.value = dataLocalStorage.linkedin;
+    gitJs.value = dataLocalStorage.github;
+    phoneJs.value = dataLocalStorage.phone;
+    htmlPreview(dataLocalStorage);
+  }
+}
+
+getDataLocalStorage();
+
+const buttonShare = document.querySelector('.button-share');
+
+function handleCreatedCard(ev) {
+  ev.preventDefault();
+  fetch('https://awesome-profile-cards.herokuapp.com/card', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(dataCard),
+  })
+    .then((response) => response.json())
+    .then((serverResponse) => {
+      if (serverResponse.success) {
+        linkCard.innerHTML = serverResponse.cardURL;
+        linkCard.href = serverResponse.cardURL;
+
+        buttonShare.href = `https://twitter.com/intent/tweet?text=Hello%20world%20mi%20tarjeta&url=${serverResponse.cardURL}`;
+      } else {
+        linkCard.innerHTML = 'Error';
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  saveDataLocalStorage();
+}
+
+create.addEventListener('click', handleCreatedCard);
+
 
