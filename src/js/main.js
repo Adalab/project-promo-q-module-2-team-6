@@ -38,7 +38,7 @@ const dataCard = {
   email: '',
   linkedin: '',
   github: '',
-  photo: './assets/images/photo.png',
+  photo: './assets/images/photo2.png',
 };
 
 const defaultCheckedPalette = () => {
@@ -134,7 +134,7 @@ resetBtn.addEventListener('click', handleClickReset);
 
 
 
-//---------------------------------------MINIFUNCIONES de la función manejadora.
+//---------------------------------------------------------- MENUS COLAPSABLES.
 
 const paletteSelection = (element) => {
   const card = document.querySelector('.card');
@@ -188,8 +188,6 @@ const otherMenusCollapser = (fieldsetElement) => {
   });
 };
 
-//--------------------------------------------------Evento y FUNCIÓN MANEJADORA.
-
 function handleFunctionCollapse(event) {
   const clickedElement = event.target;
   const fieldsetElement = event.currentTarget;
@@ -204,7 +202,6 @@ function handleFunctionCollapse(event) {
   paletteSelection(clickedElement);
   displayCreateCardSection(event, clickedElement);
 }
-
 
 collapsableMenu.forEach((item) =>
   item.addEventListener('click', handleFunctionCollapse)
