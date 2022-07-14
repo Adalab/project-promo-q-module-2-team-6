@@ -41,14 +41,15 @@ const dataCard = {
   photo: './assets/images/photo2.png',
 };
 
-const defaultCheckedPalette = () => {
+const defaultCheckedPalette = (dataCard) => {
   const paletteDefault = document.getElementById(`${dataCard.palette}`);
   paletteDefault.setAttribute('checked', '');
 };
 
-defaultCheckedPalette();
+defaultCheckedPalette(dataCard);
 
-//Función para previsualizar la información de los inputs en la tarjeta.
+
+//----------------------------------------------FORMULARIO y PREVISUALIZACIÓN.
 const htmlPreview = (dataCard) => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
@@ -68,9 +69,6 @@ const fillDataCard = (clickedElement) => {
   }
 };
 
-
-//-----------------------------------Evento y función manejadora del FORMULARIO.
-
 function handlePreviewData(event) {
   const clickedElement = event.target;
   fillDataCard(clickedElement);
@@ -79,9 +77,11 @@ function handlePreviewData(event) {
 
 form.addEventListener('keyup', handlePreviewData);
 
-//---------------------------------------------------RESETEANDO EL FORMULARIO al clickar RESET.
 
-//Resetea el objeto a sus valores por defecto.
+
+//-----------------------------------------------------------------Botón RESET.
+
+
 function cardDefault() {
   dataCard.palette = 1;
   dataCard.name = 'Nombre Apellido';
@@ -90,10 +90,9 @@ function cardDefault() {
   dataCard.email = '';
   dataCard.linkedin = '';
   dataCard.github = '';
-  dataCard.photo = './assets/images/photo.png';
+  dataCard.photo = './assets/images/photo2.png';
 }
 
-//Resetea el formulario.
 function resetForm() {
   dataCard.palette = 1;
   nameJs.value = '';
@@ -108,7 +107,6 @@ function resetForm() {
   profileImage.style.backgroundPosition = 'center';
 }
 
-//Devuelve la tarjeta a su estado original.
 function resetCard() {
   cardDefault();
   previewName.innerHTML = dataCard.name;
@@ -124,10 +122,13 @@ function resetCard() {
   profilePreview.src = dataCard.photo;
 }
 
+const resetLocalStorage = () => localStorage.removeItem('userData');
+
 //Función manejadora del botón RESET.
 function handleClickReset() {
   resetForm();
   resetCard();
+  resetLocalStorage();
 }
 
 resetBtn.addEventListener('click', handleClickReset);
@@ -228,6 +229,7 @@ function getDataLocalStorage() {
     gitJs.value = dataLocalStorage.github;
     phoneJs.value = dataLocalStorage.phone;
     htmlPreview(dataLocalStorage);
+    defaultCheckedPalette(dataLocalStorage);
   }
 }
 
@@ -239,7 +241,9 @@ function handleCreatedCard(ev) {
   ev.preventDefault();
   fetch('https://awesome-profile-cards.herokuapp.com/card', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(dataCard),
   })
     .then((response) => response.json())
@@ -254,8 +258,9 @@ function handleCreatedCard(ev) {
       }
     })
     .catch((error) => {
-      console.error(error);
+      console.error(`Se ha producido un error ${error}`);
     });
+
   saveDataLocalStorage();
 }
 
