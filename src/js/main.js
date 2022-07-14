@@ -11,7 +11,7 @@ const previewGithub = document.querySelector('.js-preview-github'); //GitHub.
 const previewPhoto = document.querySelector('.js-preview-photo'); //Photo.
 const resetBtn = document.querySelector('.js-resetBtn'); //Elemento botón RESET.
 const form = document.querySelector('.form'); //Elemnto formulario.
-const paletteDefault = document.getElementById('1');
+
 
 
 //Elementos del FORMULARIO.
@@ -28,8 +28,6 @@ const profileImage = document.querySelector('.js__profile-image');
 const profilePreview = document.querySelector('.js-preview-photo');
 
 
-paletteDefault.setAttribute('checked', '');
-
 //Definimos el objeto dataCard.
 const dataCard = {
   palette: 1,
@@ -41,6 +39,13 @@ const dataCard = {
   github: '',
   photo: './assets/images/photo.png',
 };
+
+const defaultCheckedPalette = () => {
+  const paletteDefault = document.getElementById(`${dataCard.palette}`);
+  paletteDefault.setAttribute('checked', '');
+};
+
+defaultCheckedPalette();
 
 //Función para previsualizar la información de los inputs en la tarjeta.
 const htmlPreview = (dataCard) => {
