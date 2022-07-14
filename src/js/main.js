@@ -215,7 +215,6 @@ function saveDataLocalStorage() {
   localStorage.setItem('userData', JSON.stringify(dataCard));
 }
 
-
 function getDataLocalStorage() {
   const dataLocalStorage = JSON.parse(localStorage.getItem('userData'));
   if (dataLocalStorage !== null) {
@@ -265,5 +264,3 @@ function handleCreatedCard(ev) {
 }
 
 create.addEventListener('click', handleCreatedCard);
-
-
