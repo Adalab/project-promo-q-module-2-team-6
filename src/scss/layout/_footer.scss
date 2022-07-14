@@ -1,26 +1,33 @@
 .footer {
   width: 100%;
-  border-top: 1px solid #d8d8d8;
-  padding: 1.8rem 6.1rem 2rem;
+  border-top: 1px solid black;
+  padding: 1.8rem 6.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
-  background-color: white;
+  background: $dark-gradient;
+  box-sizing: border-box;
+  height: auto;
 
   @media all and (min-width: 768px) {
-    padding: 1rem 4rem 1rem 4.1rem;
+    padding: 25px;
     flex-direction: row;
     justify-content: space-between;
+    height: auto;
   }
 
   &__copyright {
     font-size: 1.4rem;
-    color: #6b6b6b;
+    color: white;
     opacity: 0.5;
   }
 
   &__logo {
     width: 10.3rem;
+    filter:brightness(100);
+    opacity: 0.5;
   }
+
+
 }

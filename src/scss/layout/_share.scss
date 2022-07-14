@@ -42,13 +42,24 @@
   height: 50px;
   background-color: $primary_color;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);
-  color: #ffffff;
+  color: #282626;
   margin: 20px auto 30px;
   padding: 10px;
   text-transform: uppercase;
   border-radius: 10px;
   border-color: transparent;
   font-size: 1.8rem;
+  transition-duration: 500ms; 
+  cursor: pointer;
+  &:hover{
+    background-color: $secondary_color; 
+    
+}
+
+  &:active {
+    background-color: $secondary_color_active;
+    transition-duration: 250ms; 
+}
 }
 //OJO CUIDAO! when the card is created the color of the button changes to gray
 
@@ -63,6 +74,7 @@
   display: block;
   margin-right: 5%;
   color: $main_text_color;
+  
 }
 
 .check {
@@ -108,6 +120,7 @@
   padding: 5px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .button-share::first-letter {

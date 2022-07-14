@@ -7,11 +7,12 @@
   top: 0;
   margin-bottom: 300px;
 
+
   &__logo {
     width: 25rem;
 
     @media all and (min-width: 768px) {
-      width: 41.9rem;
+      width: 30.9rem;
       
     }
   }
@@ -31,15 +32,18 @@
     display: flex;
     justify-content: center;
     margin: 0rem;
-    height: 11.1rem;
+    padding: 1rem;
+    background: $dark-gradient;
+    
     
    @media all and (min-width: 768px) {
       justify-content: flex-start;
-      padding-left: 4rem;
+      padding:2rem 4rem;
     }
   }
 
   &__logo {
-    width: 20.1rem;
+    width: 20rem;
+ 
   }
 }
