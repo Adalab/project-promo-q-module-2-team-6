@@ -1,5 +1,5 @@
 .main {
-    background-color: #f5f5f5;
+    background: $dark-gradient;
     padding: 19.34rem 2.8rem 0rem 2.72rem;
     min-height: calc(100vh - 11rem);
     display: flex;
@@ -24,7 +24,7 @@
     }
 
     &__description {
-        color: $secondary_color;
+        color: white;
         text-align: center;
         font-size: 1.28rem;
         width: 26.48rem;
@@ -42,7 +42,7 @@
         padding: 1.5rem 2rem 1rem;
         margin: 1.78rem auto 3.86rem;
         gap: 3.4rem;
-        border: 1.6px solid #e173342c;
+        border: 1.6px solid $primary_color;
         border-radius: 4px;
 
         @media all and (min-width: 768px) {
@@ -56,7 +56,7 @@
             height: 4.88rem;
             list-style: none;
             
-            color: #54585a;
+            color: white;
             text-align: center;
             font-size: 1.28rem;
             display: flex;
@@ -82,13 +82,24 @@
     &__button {
         text-transform: uppercase;
         font-size: 1.6rem;
-        background-color: #438792;
+        background-color: $primary_color;
         font-weight: 600;
         text-decoration: none;
-        color: white;
+        color: #282626;
         padding: 1rem 2rem;
         border-radius: 2.1rem;
         margin-bottom: 3rem;
+        transition-duration: 500ms; 
+        
+        &:hover{
+            background-color: $secondary_color;
+            
+        }
+
+        &:active {
+            background-color: $secondary_color_active;
+            transition-duration: 500ms; 
+        }
 
         @media all and (min-width: 768px) {
             margin: 0rem;
@@ -96,3 +107,4 @@
         }
     }
 }
+

@@ -2,7 +2,12 @@ $main_font:'Open Sans', sans-serif;
 $title_font: 'Merriweather', serif;
 $card_font: 'Montserrat', sans-serif;
 
-$main_text_color: #54585a;
-$secondary_color: #114e4e;
-$primary_color: #e17334;
+$main_text_color: #e8e8e8;
+$secondary_color: #ee1447;
+$secondary_color_active: #c7002e;
+$primary_color: #f9c721;
+$primary_color_active: #e7b100;
 $form_color: #a2deaf;
+
+$dark-gradient: linear-gradient(#282626, #454040);
+$light-gradient: linear-gradient(#a6a6a6, #7c7c7c);
