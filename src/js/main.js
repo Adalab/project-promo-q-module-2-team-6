@@ -26,6 +26,7 @@ const linkCard = document.querySelector('.link');
 const create = document.querySelector('.button-create');
 const profileImage = document.querySelector('.js__profile-image');
 const profilePreview = document.querySelector('.js-preview-photo');
+const collapsableMenu = document.querySelectorAll('.collapsablemenu');
 
 
 //Definimos el objeto dataCard.
@@ -56,14 +57,23 @@ const htmlPreview = (dataCard) => {
   previewPhone.href = `tel: ${dataCard.phone}`;
   previewLink.href = dataCard.linkedin;
   previewGithub.href = dataCard.github;
+  profileImage.style.background = `url(${dataCard.photo})`;
+  profileImage.style.backgroundSize = 'cover';
+  profilePreview.src = dataCard.photo;
 };
 
-//Función manejadora del FORMULARIO.
-function handlePreviewData(event) {
-  const clickedElement = event.target;
+const fillDataCard = (clickedElement) => {
   if (clickedElement) {
     dataCard[clickedElement.name] = clickedElement.value;
   }
+};
+
+
+//-----------------------------------Evento y función manejadora del FORMULARIO.
+
+function handlePreviewData(event) {
+  const clickedElement = event.target;
+  fillDataCard(clickedElement);
   htmlPreview(dataCard);
 }
 
@@ -122,14 +132,10 @@ function handleClickReset() {
 
 resetBtn.addEventListener('click', handleClickReset);
 
-//--------------------------Código funcionalidad MENÚS COLAPSABLES CON OBJETOS.
 
-const collapsableMenu = document.querySelectorAll('.collapsablemenu'); //Con querySelectoAll() objetemos un objeto con todos los elementos que tienen el selector especificado (en este caso la clase 'collapsablemenu')
-collapsableMenu.forEach((item) =>
-  item.addEventListener('click', hideShow, true)
-);
 
-//----------Definimos las diferentes MINIFUNCIONES que va a contener la función manejadora.
+//---------------------------------------MINIFUNCIONES de la función manejadora.
+
 const paletteSelection = (element) => {
   const card = document.querySelector('.card');
   const cardStyles = ['palette1', 'palette2', 'palette3', 'palette4'];
@@ -143,7 +149,7 @@ const paletteSelection = (element) => {
   }
 };
 
-const createCard = (event, element) => {
+const displayCreateCardSection = (event, element) => {
   if (
     element.name === 'newCardButton' ||
     element.parentElement.name === 'newCardButton'
@@ -169,7 +175,7 @@ const arrowPositioner = () => {
 function menuCollapser(fieldsetElement) {
   const sectionToHide = fieldsetElement.querySelector('.section-to-hide');
   sectionToHide.classList.toggle('collapsed');
-} //Con esta función estamos colapsando el menú si detecta un click y está descolapsado y viceversa.
+}
 
 const otherMenusCollapser = (fieldsetElement) => {
   collapsableMenu.forEach((item) => {
@@ -182,9 +188,9 @@ const otherMenusCollapser = (fieldsetElement) => {
   });
 };
 
-//------------------------------------------------------FUNCIÓN MANEJADORA.
+//--------------------------------------------------Evento y FUNCIÓN MANEJADORA.
 
-function hideShow(event) {
+function handleFunctionCollapse(event) {
   const clickedElement = event.target;
   const fieldsetElement = event.currentTarget;
   if (
@@ -196,13 +202,19 @@ function hideShow(event) {
     arrowPositioner(fieldsetElement);
   }
   paletteSelection(clickedElement);
-  createCard(event, clickedElement);
+  displayCreateCardSection(event, clickedElement);
 }
 
 
+collapsableMenu.forEach((item) =>
+  item.addEventListener('click', handleFunctionCollapse)
+);
+
+
+//-----------------------------------------------------------
+
 function saveDataLocalStorage() {
   localStorage.setItem('userData', JSON.stringify(dataCard));
-  /* console.log(localStorage.getItem('juan')); */
 }
 
 
