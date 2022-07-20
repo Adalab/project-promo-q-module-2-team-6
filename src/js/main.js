@@ -31,8 +31,8 @@ const buttonShare = document.querySelector('.button-share');
 //Definimos el objeto dataCard.
 const dataCard = {
   palette: 1,
-  name: 'Nombre Apellido',
-  job: 'Front-End developer',
+  name: '',
+  job: '',
   phone: '',
   email: '',
   linkedin: '',
@@ -59,12 +59,21 @@ const paletteChecker = (dataCard) => {
 paletteChecker(dataCard);
 
 //----------------------------------------------FORMULARIO y PREVISUALIZACIÓN.
-
-
-
 const htmlPreview = (dataCard) => {
-  previewName.innerHTML = dataCard.name;
-  previewJob.innerHTML = dataCard.job;
+
+  if (!dataCard.name) {
+    previewName.innerHTML = 'Nombre Apellidos';
+  } else {
+    previewName.innerHTML = dataCard.name;
+  }
+
+  if (!dataCard.job) {
+    previewJob.innerHTML = 'Front-End developer';
+  } else {
+    previewJob.innerHTML = dataCard.job;
+  }
+
+
   previewPhoto.src = dataCard.photo;
   profileImage.style.background = `url(${dataCard.photo})`;
   profileImage.style.backgroundSize = 'cover';
@@ -91,6 +100,7 @@ const fillDataCard = (clickedElement) => {
 function handlePreviewData(event) {
   const clickedElement = event.target;
   fillDataCard(clickedElement);
+  saveDataLocalStorage();
   htmlPreview(dataCard);
 }
 
@@ -306,7 +316,7 @@ function apiCall() {
 function handleCreatedCard(ev) {
   ev.preventDefault();
   apiCall();
-  saveDataLocalStorage();
+  // saveDataLocalStorage();
 }
 
 create.addEventListener('click', handleCreatedCard);
