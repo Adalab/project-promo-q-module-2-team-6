@@ -60,7 +60,6 @@ paletteChecker(dataCard);
 
 //----------------------------------------------FORMULARIO y PREVISUALIZACIÓN.
 const htmlPreview = (dataCard) => {
-
   if (!dataCard.name) {
     previewName.innerHTML = 'Nombre Apellidos';
   } else {
@@ -72,7 +71,6 @@ const htmlPreview = (dataCard) => {
   } else {
     previewJob.innerHTML = dataCard.job;
   }
-
 
   previewPhoto.src = dataCard.photo;
   profileImage.style.background = `url(${dataCard.photo})`;
