@@ -1,5 +1,6 @@
 'use strict';
 
+
 //---------------------------------------Funcionalidad FORMULARIO INTERACTIVO
 //Elementos de la TARJETA.
 const previewName = document.querySelector('.js-preview-name'); //Name.
@@ -39,31 +40,52 @@ const dataCard = {
   photo: './assets/images/photo2.png',
 };
 
-const defaultCheckedPalette = (dataCard) => {
+//-------------------------------------------Inactivar botones card.
+
+const cardLinkElements = document.querySelectorAll('.card-links');
+
+cardLinkElements.forEach(item => item.removeAttribute('href'));
+
+
+//----------------------------------------------Check automático de paletas.
+
+const paletteChecker = (dataCard) => {
   const paletteDefault = document.getElementById(`${dataCard.palette}`);
+  const allPalettesElements = document.querySelectorAll('.js-palettes');
+  allPalettesElements.forEach(palette => palette.removeAttribute('checked'));
   paletteDefault.setAttribute('checked', '');
 };
 
-defaultCheckedPalette(dataCard);
+paletteChecker(dataCard);
 
 //----------------------------------------------FORMULARIO y PREVISUALIZACIÓN.
+
+
+
 const htmlPreview = (dataCard) => {
   previewName.innerHTML = dataCard.name;
   previewJob.innerHTML = dataCard.job;
   previewPhoto.src = dataCard.photo;
-  previewEmail.href = `mailto: ${dataCard.email}`;
-  previewPhone.href = `tel: ${dataCard.phone}`;
-  previewLink.href = dataCard.linkedin;
-  previewGithub.href = dataCard.github;
   profileImage.style.background = `url(${dataCard.photo})`;
   profileImage.style.backgroundSize = 'cover';
   profilePreview.src = dataCard.photo;
+  if (dataCard.email) {
+    previewEmail.href = `mailto: ${dataCard.email}`;
+  }
+  if (dataCard.phone) {
+    previewPhone.href = `tel: ${dataCard.phone}`;
+  }
+  if (dataCard.linkedin) {
+    previewLink.href = dataCard.linkedin;
+  }
+  if (dataCard.github) {
+    previewGithub.href = dataCard.github;
+  }
 };
 
+
 const fillDataCard = (clickedElement) => {
-  if (clickedElement) {
-    dataCard[clickedElement.name] = clickedElement.value;
-  }
+  dataCard[clickedElement.name] = clickedElement.value;
 };
 
 function handlePreviewData(event) {
@@ -118,28 +140,33 @@ function resetCard() {
 
 const resetLocalStorage = () => localStorage.removeItem('userData');
 
-const collapseCreateCardSection = () => {
+const collapseCreateCardChildSections = () => {
+  const createdSectionElement = document.querySelector('.created');
+  const textAlertElement = document.querySelector('.share-text');
   if (
     document.querySelector('.button-create').classList.contains('inactived')
   ) {
     document.querySelector('.button-create').classList.remove('inactived');
   }
-  if (!document.querySelector('.created').classList.contains('collapsed')) {
-    document.querySelector('.created').classList.add('collapsed');
+  if (!createdSectionElement.classList.contains('collapsed')) {
+    createdSectionElement.classList.add('collapsed');
   }
-  if (document.querySelector('.check').classList.contains('collapsed')) {
-    document.querySelector('.check').classList.add('collapsed');
+  if (!textAlertElement.classList.contains('collapsed')) {
+    textAlertElement.classList.add('collapsed');
   }
 };
 
 function handleClickReset() {
   resetForm();
   resetCard();
-  collapseCreateCardSection();
+  collapseCreateCardChildSections();
+  paletteChecker(dataCard);
   resetLocalStorage();
 }
 
 resetBtn.addEventListener('click', handleClickReset);
+
+
 
 //---------------------------------------------------------- MENUS COLAPSABLES.
 
@@ -148,6 +175,7 @@ const paletteSelection = (element) => {
   const cardStyles = ['palette1', 'palette2', 'palette3', 'palette4'];
   if (element.name === 'palette') {
     dataCard[element.name] = parseInt(element.id);
+
     cardStyles.forEach((item) =>
       item === `palette${element.id}`
         ? card.classList.add(item)
@@ -156,18 +184,22 @@ const paletteSelection = (element) => {
   }
 };
 
+const chooseWhatMenuDisplay = () => {
+  event.preventDefault();
+  nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value
+    ? document.querySelector('.created').classList.remove('collapsed')
+    : document.querySelector('.check').classList.remove('collapsed');
+  if (!document.querySelector('.created').classList.contains('collapsed')) {
+    document.querySelector('.button-create').classList.add('inactived');
+  }
+};
+
 const displayCreateCardSection = (event, element) => {
   if (
     element.name === 'newCardButton' ||
     element.parentElement.name === 'newCardButton'
   ) {
-    event.preventDefault();
-    nameJs.value && jobJs.value && emailJs.value && gitJs.value && linkJs.value
-      ? document.querySelector('.created').classList.remove('collapsed')
-      : document.querySelector('.check').classList.remove('collapsed');
-    if (!document.querySelector('.created').classList.contains('collapsed')) {
-      document.querySelector('.button-create').classList.add('inactived');
-    }
+    chooseWhatMenuDisplay(event);
   }
 };
 
@@ -195,9 +227,7 @@ const otherMenusCollapser = (fieldsetElement) => {
   });
 };
 
-function handleFunctionCollapse(event) {
-  const clickedElement = event.target;
-  const fieldsetElement = event.currentTarget;
+const checkIsFieldsetOrChild = (fieldsetElement, clickedElement) => {
   if (
     fieldsetElement === clickedElement ||
     clickedElement.parentElement.classList.contains('js-legend')
@@ -206,6 +236,12 @@ function handleFunctionCollapse(event) {
     otherMenusCollapser(fieldsetElement);
     arrowPositioner(fieldsetElement);
   }
+};
+
+function handleFunctionCollapse(event) {
+  const clickedElement = event.target;
+  const fieldsetElement = event.currentTarget;
+  checkIsFieldsetOrChild(fieldsetElement, clickedElement);
   paletteSelection(clickedElement);
   displayCreateCardSection(event, clickedElement);
 }
@@ -213,6 +249,7 @@ function handleFunctionCollapse(event) {
 collapsableMenu.forEach((item) =>
   item.addEventListener('click', handleFunctionCollapse)
 );
+
 
 //--------------------------------------------------------LOCAL STORAGE.
 
@@ -223,6 +260,7 @@ function saveDataLocalStorage() {
 function getDataLocalStorage() {
   const dataLocalStorage = JSON.parse(localStorage.getItem('userData'));
   if (dataLocalStorage !== null) {
+    paletteChecker(dataLocalStorage);
     nameJs.value = dataLocalStorage.name;
     jobJs.value = dataLocalStorage.job;
     profileImage.style.background = `url(${dataLocalStorage.photo})`;
@@ -233,7 +271,7 @@ function getDataLocalStorage() {
     gitJs.value = dataLocalStorage.github;
     phoneJs.value = dataLocalStorage.phone;
     htmlPreview(dataLocalStorage);
-    defaultCheckedPalette(dataLocalStorage);
+    paletteChecker(dataLocalStorage);
   }
 }
 
@@ -272,3 +310,5 @@ function handleCreatedCard(ev) {
 }
 
 create.addEventListener('click', handleCreatedCard);
+
+

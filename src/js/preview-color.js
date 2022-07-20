@@ -7,7 +7,7 @@ const newFile = new FileReader();
 const fileField = document.querySelector('.js__profile-upload-btn');
 
 //@param { evento } e
-function getImage(e) {
+function handleGetImage(e) {
   const myFile = e.currentTarget.files[0];
   newFile.addEventListener('load', writeImage);
   newFile.readAsDataURL(myFile);
@@ -18,6 +18,7 @@ function writeImage() {
   profileImage.style.backgroundSize = 'cover';
   profilePreview.src = newFile.result;
   dataCard.photo = newFile.result;
+  saveDataLocalStorage();
 }
 
-fileField.addEventListener('change', getImage);
+fileField.addEventListener('change', handleGetImage);
