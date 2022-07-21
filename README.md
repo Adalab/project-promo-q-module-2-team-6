@@ -8,7 +8,7 @@ SCREAM PROFILE CARD es un proyecto colaborativo llevado a cabo por Scream Team, 
 
 En este proyecto hemos realizado una aplicación web que nos permite crear una tarjeta de visita personalizada. En la página web podemos introducir nuestros datos profesionales y obtener una vista maquetada con esta información.
 
-![screenshot]()
+![screenshot](https://github.com/Adalab/project-promo-q-module-2-team-6/blob/main/src/images/mockup-1.png?raw=true)
 
 ## Objetivos
 
