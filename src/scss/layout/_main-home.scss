@@ -5,11 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+ 
 
   @media all and (min-width: 768px) {
-    height: calc(100vh - 9.1rem);
+    min-height: calc(100vh - 9.1rem);
     justify-content: flex-start;
-    padding-top: calc(100vh - 59vh);
+    padding-top: 16vh;
   }
 
   &__title {
@@ -38,7 +40,7 @@
   &__menu {
     display: flex;
     padding: 1.5rem 2rem 1rem;
-    margin: 1.78rem auto 3.86rem;
+    margin: 1.78rem auto 0rem;
     gap: 3.4rem;
     border: 1.6px solid $primary_color;
     border-radius: 4px;
@@ -98,8 +100,21 @@
     }
 
     @media all and (min-width: 768px) {
-      margin: 0rem;
-      margin-top: calc(10vh);
+      margin: 3rem;
+      margin-top: 6rem;
     }
   }
 }
+
+.farmeContainer {
+  height: 60rem;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.farme3d {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
